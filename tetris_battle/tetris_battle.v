@@ -17,7 +17,7 @@ module tetris_battle(
 	pb_in_ctl,
 	pb_in_vol_up,
 	pb_in_vol_dwn,
-	//dip_in_sound_on,
+	dip_in_spk_en,
 	pad_col_in,
 	pad_row_scn,
 	con_in_clk_sync,
@@ -44,6 +44,9 @@ module tetris_battle(
 	// Push Button
 	input pb_in_rst, pb_in_ctl, pb_in_vol_up, pb_in_vol_dwn;
 	
+	// DIP Switch
+	input dip_in_spk_en;
+
 	// Keypad
 	input [3:0] pad_col_in;
 	output [3:0] pad_row_scn;
