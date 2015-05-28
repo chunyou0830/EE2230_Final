@@ -21,9 +21,10 @@
 `define STAT_GAME_OVER		3'b111
 
 module game_status(
-	start_in,
-	match_in,
+	pb_ctl,
+	stat_sync,
 	table_in,
+	dip_players,
 	global_clk,
 	game_clk,
 	stat_out
@@ -32,9 +33,10 @@ module game_status(
 	// I/O PORTS DECLARATION ----------
 
 	// Input Ports
-	input start_in;
-	input match_in;
+	input pb_ctl;
+	input stat_sync;
 	input table_in;
+	input dip_players;
 	input global_clk;
 	input game_clk;
 
@@ -50,9 +52,45 @@ module game_status(
 		case(stat_out)
 			`STAT_NORMAL:
 			begin
-				if (start_in)
+				if (pb_ctl && dip_players)
+				else if (pb_ctl && ~dip_players)
+				else
+			end
+			`STAT_MATCH_ING:
+			begin
+				if(stat_sync == `STAT_MATCH_ING)
+				else if(pb_ctl)
+				else
+			end
+			`STAT_MATCH_CANCEL:
+			begin
+				
+			end
+			`STAT_MATCH_SUCCESS:
+			begin
+				
+			end
+			`STAT_GAME_INITIAL:
+			begin
+				
+			end
+			`STAT_GAME_CNTDOWN:
+			begin
+				
+			end
+			`STAT_GAME_ING:
+			begin
+				
+			end
+			`STAT_GAME_OVER:
+			begin
+				if(pb_ctl)
 				begin
-					
+					stat_out_next = `STAT_NORMAL;
+				end
+				else
+				begin
+					stat_out_next = `STAT_GAME_OVER;
 				end
 			end
 	end
