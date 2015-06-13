@@ -27,12 +27,19 @@ module GameStatus(
 	game_clk,
 	global_clk,
 	stat_sync,
-	stat_out
+	stat_out,
+	rst,
+	clk_1Hz,
+	KO,
+	game_time
 );
 
 	// I/O PORTS DECLARATION ----------
 
 	// Input Ports
+	input game_time;
+	input clk_1Hz;
+	input rst;
 	input pb_ctl;
 	input dip_players;
 	input game_over;
@@ -45,6 +52,8 @@ module GameStatus(
 
 	// Reg Ports
 	reg [2:0] stat_out_next;
+    reg count_enable;
+    reg [1:0] number,number_next;
 
 	// COMBINATIONAL LOGICS ----------
 	always @*
@@ -73,7 +82,7 @@ module GameStatus(
 				end
 				else if(pb_ctl)
 				begin
-					stat_out_next = `STAT_NORMAL;
+					stat_out_next = `STAT_MATCH_CANCEL;
 				end
 				else
 				begin
@@ -90,15 +99,30 @@ module GameStatus(
 			end
 			`STAT_GAME_INITIAL:
 			begin
-				
+				stat_out_next = `STAT_GAME_CNTDOWN;
 			end
 			`STAT_GAME_CNTDOWN:
 			begin
-				
+				count_enable =1'b1;
+				if (number == 3) 
+				begin
+					stat_out_next = `STAT_GAME_ING;
+				end
+				else 
+				begin
+					stat_out_next =`STAT_GAME_CNTDOWN;
+				end
 			end
 			`STAT_GAME_ING:
 			begin
-				
+				if(KO == 5 && game_time == 0)
+				begin
+					stat_out_next = `STAT_GAME_OVER;
+				end
+				else 
+				begin
+					stat_out_next = `STAT_GAME_ING;	
+				end
 			end
 			`STAT_GAME_OVER:
 			begin
@@ -112,3 +136,30 @@ module GameStatus(
 				end
 			end
 	end
+
+	always @*
+	if(count_enable)
+    	number_next = number + 1'b1;
+    else 
+    	number_next = number;
+
+    always @(posedge clk_1Hz or posedge rst) 
+    begin
+    	if (rst) 
+    	begin
+    		number = 2'b0;
+    	end
+    	else 
+    	begin
+    		number = number_next;	
+    	end
+    end
+
+
+	always@(posedge clk or posedge rst)
+	if(rst)
+		stat_out<=3'b0;
+	else 
+		stat_out<=stat_out_next;
+
+endmodule
