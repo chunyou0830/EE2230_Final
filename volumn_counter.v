@@ -20,20 +20,19 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module volumn_counter(
-     volumn_value,//counter output
 	 clk,//global clock
-	 rst_n,//active low reset 
+	 rst,//active low reset 
 	 volumn,
-     increase_volumn,
+    increase_volumn,
 	 decrease_volumn
     );
 	 
 	 input increase_volumn,decrease_volumn;
 	 output reg [15:0]volumn;
-	 output reg[7:0]volumn_value;   
 	 input clk;
-	 input rst_n;
+	 input rst;
 	 reg [7:0]volumn_value_tmp;
+	 reg[7:0]volumn_value;   
 	 
 	 //combinational logic
 	 
@@ -47,8 +46,8 @@ module volumn_counter(
 		
 		 		
 	 //flip flops
-	 always @(posedge clk or negedge rst_n)
-	 if(~rst_n)
+	 always @(posedge clk or posedge rst)
+	 if(rst)
 			volumn_value<=8'd0;
 	 else if(increase_volumn&&volumn_value==8'd15)
 			volumn_value<=4'd15;

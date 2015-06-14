@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module speaker_control(
 	 clk,
-	 rst_n,
+	 rst,
 	 audio_in_left,
 	 audio_in_right,
 	 audio_appsel,
@@ -30,7 +30,7 @@ module speaker_control(
 	 audio_data
     );
 	 input clk;
-	 input rst_n;
+	 input rst;
 	 input [15:0]audio_in_left,audio_in_right;
 	 output reg audio_data;
 	 output reg audio_bck,audio_ws; 
@@ -59,8 +59,8 @@ module speaker_control(
 				count_4_next=count_4+1'b1;
 				audio_bck_next=audio_bck;
 			end
-	 always@(posedge clk or negedge rst_n)
-		if(~rst_n)
+	 always@(posedge clk or posedge rst)
+		if(rst)
 			begin 
 				count_4<=3'b0;
 				audio_bck<=1'b0;
@@ -83,8 +83,8 @@ module speaker_control(
 				count_128_next=count_128+1'b1;
 				audio_ws_next=audio_ws;
 			end
-	 always@(posedge clk or negedge rst_n)
-		if(~rst_n)
+	 always@(posedge clk or posedge rst)
+		if(rst)
 			begin 
 				count_128<=8'b0;
 				audio_ws<=1'b0;
@@ -95,8 +95,8 @@ module speaker_control(
 				audio_ws<=audio_ws_next;
 			end
 			//input data(5/32MHz)
-	 always@(posedge audio_ws or negedge rst_n)
-				if(~rst_n)
+	 always@(posedge audio_ws or posedge rst)
+				if(rst)
 				audio_data_tmp<=32'b0;
 				else
 				audio_data_tmp<={audio_in_right,audio_in_left};
@@ -106,8 +106,8 @@ module speaker_control(
 	 always@*
 			audio_data_next2 = audio_data_next-1'b1;
 			
-	 always@(posedge audio_bck or negedge rst_n)
-			if(~rst_n)
+	 always@(posedge audio_bck or posedge rst)
+			if(rst)
 			      begin 
 						audio_data_next<=5'd31;
 					   audio_data<=1'b0;

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module buzzer_control(
 	 clk,//clk from crystal
-	 rst_n,//active low reset
+	 rst,//active low reset
 	 note_div,//div for note generation
 	 audio_left,//left sound audio
 	 audio_right,//right sound audio
@@ -30,7 +30,7 @@ module buzzer_control(
 	 //I/O declaration
 	 input [15:0]volumn;
 	 input clk;
-	 input rst_n;
+	 input rst;
 	 input [19:0]note_div;
 	 output [15:0]audio_left;
 	 output [15:0]audio_right;
@@ -40,8 +40,8 @@ module buzzer_control(
 	 reg b_clk,b_clk_next;
 	 
 	 //Note frequency generation
-	 always@(posedge clk or negedge rst_n)
-		if(~rst_n)
+	 always@(posedge clk or posedge rst)
+		if(rst)
 			begin
 				clk_cnt<=20'd0;
 				b_clk<=1'b0;
