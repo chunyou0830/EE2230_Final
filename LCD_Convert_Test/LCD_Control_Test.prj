@@ -1,0 +1,7 @@
+verilog work "RAM_signal_converter.v"
+verilog work "RAM_control.v"
+verilog work "LCD_control.v"
+verilog work "FakeDispRAMData.v"
+verilog work "ct_clkdivider.v"
+verilog work "clock_generator.v"
+verilog work "LCD_Control_Test.v"

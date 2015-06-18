@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Control_Test.syr" 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Control_Test.syr" 
