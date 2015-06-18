@@ -60,7 +60,8 @@ module GameRAMControll(
 	// Block Controll
 	reg [6:0] block_type;
 	reg [3:0] block_A_X, block_A_Y, block_B_X, block_B_Y, block_C_X, block_C_Y, block_D_X, block_D_Y;
-
+	reg [99:0] game_table;
+	
 	// LCD Displaying
 	output lcd_status;
 	reg    lcd_status_next;
@@ -188,12 +189,12 @@ module GameRAMControll(
 	begin
 		if(state == `STAT_MOVE_WAIT)
 		begin
-			lcd_status_next = `LCD_WRITE;
+			lcd_status_next = `LCD_READ;
 			row_cnt_next = row_cnt + 1'b1;
 		end
 		else
 		begin
-			lcd_status_next = `LCD_READ;
+			lcd_status_next = `LCD_WRITE;
 		end
 	end
 
@@ -213,5 +214,11 @@ module GameRAMControll(
 			lcd_status <= lcd_status_next;
 			row_cnt <= row_cnt_next;
 		end
+	end
+
+	// RAM READ AND WRITE ----------
+	always @*
+	begin
+		if()
 	end
 endmodule
