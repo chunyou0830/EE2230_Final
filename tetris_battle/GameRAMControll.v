@@ -29,6 +29,10 @@
 `define BLOCK_S				3'b101
 `define BLOCK_Z				3'b110
 `define BLOCK_T				3'b111
+`define ROTATE_0			2'b00
+`define ROTATE_1			2'b01
+`define ROTATE_2			2'b10
+`define ROTATE_3			2'b11
 
 module GameRAMControll(
 	clk_40M,
@@ -61,7 +65,8 @@ module GameRAMControll(
 	// Block Controll
 	reg move_available;
 	wire move_basic_check;
-	reg [2:0] block_type;
+	reg [2:0] block_gen_type, block_type;
+	reg [1:0] block_rotate;
 	reg [6:0] block_A, block_B, block_C, block_D, block_next_A, block_next_B, block_next_C, block_next_D;
 	reg [99:0] game_table;
 
@@ -74,11 +79,11 @@ module GameRAMControll(
 	begin
 		if(rst)
 		begin
-			block_type<=3'b010;
+			block_gen_type<=3'b010;
 		end
 		else
 		begin
-			block_type<={block_type[1:0],block_type[2]^block_type[0]};
+			block_gen_type<={block_gen_type[1:0],block_gen_type[2]^block_gen_type[0]};
 		end
 	end
 
@@ -92,15 +97,17 @@ module GameRAMControll(
 			begin
 				move_available = 1'b0;
 				/* Create a new block */
-				case(block_type)
-					`BLOCK_O:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd4 ,7'd5 ,7'd14,7'd15};
-					`BLOCK_L:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd25,7'd24,7'd14,7'd4 };
-					`BLOCK_J:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd24,7'd25,7'd15,7'd5 };
-					`BLOCK_I:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd5 ,7'd15,7'd25,7'd35};
-					`BLOCK_S:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd5 ,7'd4 ,7'd14,7'd13};
-					`BLOCK_Z:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd4 ,7'd5 ,7'd15,7'd16};
-					`BLOCK_T:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd6 ,7'd5 ,7'd4 ,7'd15};
+				case(block_gen_type)
+					`BLOCK_O:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_O,7'd4 ,7'd5 ,7'd14,7'd15};
+					`BLOCK_L:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_L,7'd25,7'd24,7'd14,7'd4 };
+					`BLOCK_J:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_J,7'd24,7'd25,7'd15,7'd5 };
+					`BLOCK_I:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_I,7'd5 ,7'd15,7'd25,7'd35};
+					`BLOCK_S:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_S,7'd5 ,7'd4 ,7'd14,7'd13};
+					`BLOCK_Z:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_Z,7'd4 ,7'd5 ,7'd15,7'd16};
+					`BLOCK_T:{block_type,block_next_A,block_next_B,block_next_C,block_next_D} = {`BLOCK_T,7'd6 ,7'd5 ,7'd4 ,7'd15};
+					default:{block_type,block_next_A,block_next_B,block_next_C,block_next_D}  = {`BLOCK_T,7'd0 ,7'd0 ,7'd0 ,7'd0 };
 				endcase
+				block_rotate = `ROTATE_0;
 				state_next = `STAT_MOVE_WAIT;
 			end
 			`STAT_MOVE_WAIT:
@@ -175,7 +182,42 @@ module GameRAMControll(
 			`STAT_MOVE_ROTATE:
 			begin
 				/* Generate next block */
-					// Blablabla
+				case({block_type,block_rotate})
+					{`BLOCK_J,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B-7'd20,block_C-7'd11,block_D-7'd2 };
+					{`BLOCK_J,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd11,block_B-7'd2 ,block_C+7'd9 ,block_D+7'd20};
+					{`BLOCK_J,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd9 ,block_B+7'd20,block_C+7'd11,block_D+7'd2 };
+					{`BLOCK_J,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd11,block_B+7'd2 ,block_C-7'd9 ,block_D-7'd20};
+
+					{`BLOCK_L,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B+7'd2 ,block_C+7'd11,block_D+7'd20};
+					{`BLOCK_L,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd11,block_B-7'd20,block_C-7'd9 ,block_D+7'd2 };
+					{`BLOCK_L,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd9 ,block_B-7'd2 ,block_C-7'd11,block_D-7'd20};
+					{`BLOCK_L,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd11,block_B+7'd20,block_C+7'd9 ,block_D-7'd2 };
+
+					{`BLOCK_S,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd11,block_B+7'd0 ,block_C-7'd9 ,block_D+7'd2 };
+					{`BLOCK_S,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd9 ,block_B+7'd0 ,block_C-7'd11,block_D-7'd20};
+					{`BLOCK_S,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd11,block_B+7'd0 ,block_C+7'd9 ,block_D-7'd2 };
+					{`BLOCK_S,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B+7'd0 ,block_C+7'd11,block_D+7'd20};
+
+					{`BLOCK_Z,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd11,block_B+7'd0 ,block_C-7'd9 ,block_D-7'd20};
+					{`BLOCK_Z,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B+7'd0 ,block_C-7'd11,block_D-7'd2 };
+					{`BLOCK_Z,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd11,block_B+7'd0 ,block_C+7'd9 ,block_D+7'd20};
+					{`BLOCK_Z,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd9 ,block_B+7'd0 ,block_C+7'd11,block_D+7'd2 };
+
+					{`BLOCK_T,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd2 ,block_B+7'd9 ,block_C+7'd20,block_D+7'd0 };
+					{`BLOCK_T,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd20,block_B+7'd11,block_C+7'd2 ,block_D+7'd0 };
+					{`BLOCK_T,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd2 ,block_B-7'd9 ,block_C-7'd20,block_D+7'd0 };
+					{`BLOCK_T,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd20,block_B-7'd11,block_C-7'd2 ,block_D+7'd0 };
+
+					{`BLOCK_I,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd19,block_B+7'd10,block_C+7'd1 ,block_D-7'd8 };
+					{`BLOCK_I,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd12,block_B+7'd1 ,block_C-7'd10,block_D-7'd21};
+					{`BLOCK_I,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd19,block_B-7'd10,block_C-7'd1 ,block_D+7'd8 };
+					{`BLOCK_I,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd12,block_B-7'd1 ,block_C+7'd10,block_D+7'd21};
+
+					{`BLOCK_O,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd0 ,block_B+7'd0 ,block_C+7'd0 ,block_D+7'd0 };
+					{`BLOCK_O,`ROTATE_1}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd0 ,block_B+7'd0 ,block_C+7'd0 ,block_D+7'd0 };
+					{`BLOCK_O,`ROTATE_2}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd0 ,block_B+7'd0 ,block_C+7'd0 ,block_D+7'd0 };
+					{`BLOCK_O,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd0 ,block_B+7'd0 ,block_C+7'd0 ,block_D+7'd0 };
+				endcase
 				/* Check Movable */
 				state_next = `STAT_MOVE_WAIT;
 			end

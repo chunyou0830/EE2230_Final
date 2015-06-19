@@ -21,3 +21,12 @@ NET "LCD_data[0]"   LOC = "F6";
 NET "LCD_en"        LOC = "F5";
 NET "LCD_rw"        LOC = "C2";
 NET "LCD_di"        LOC = "C1";
+
+NET "col_in[3]" LOC = H1;
+NET "col_in[2]" LOC = H2;
+NET "col_in[1]" LOC = J1;
+NET "col_in[0]" LOC = J3;
+NET "row_scn[3]" LOC = L3;
+NET "row_scn[2]" LOC = L4;
+NET "row_scn[1]" LOC = K1;
+NET "row_scn[0]" LOC = K2;

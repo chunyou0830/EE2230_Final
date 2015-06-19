@@ -11,7 +11,9 @@ module LCD_Control_Test(
 	LCD_rw,
 	LCD_di,
 	LCD_data,
-	LCD_en
+	LCD_en,
+	col_in,
+	row_scn
 );
 
 
@@ -27,11 +29,20 @@ module LCD_Control_Test(
 	output [7:0] LCD_data;
 	output LCD_en;
 
+	output [3:0] row_scn;
+	input [3:0] col_in;
+	wire pad_pressed;
+	wire [3:0] pad_key;
+
 	wire [3:0] addr;
 	wire [9:0] data_out;
 	wire [63:0] conv_data;
 	wire out_valid;
 	wire [7:0] ram_data_out;
+	
+	wire clk_1;
+
+	wire [99:0] game_table;
 
   clock_divider #(
     .half_cycle(200),         // half cycle = 200 (divided by 400)
@@ -42,9 +53,35 @@ module LCD_Control_Test(
   .clk_div(clk_div)
 );
 
+clock_generator clk_gen(
+	.clk(clk),
+	.rst(rst),
+	.clk_1(clk_1),
+	.clk_100()
+);
+
+keypad_scan pad_scn(
+	.clk(clk_div),
+	.rst(rst),
+	.row_scn(row_scn),
+	.col_in(col_in),
+	.key(pad_key),
+	.pressed(pad_pressed)
+);
+
+GameRAMControll game_ctrl(
+	.clk_40M(clk_1),
+	.clk_1(clk_1),
+	.rst(rst),
+	.pad_key(pad_key),
+	.pad_pressed(pad_pressed),
+	.game_addLine(1'b0),
+	.game_sendLine(),
+	.game_table_output(game_table)
+);
 
 RAM_ctrl ram_c (
-  .game_table(100'b0000000001_0000000010_0000000100_0000001000_0000010000_0000100000_0001000000_0010000000_0100000000_1000000000), // CY_ADD
+  .game_table(game_table), // CY_ADD
   .clk(clk_div),
   .rst_n(pb_in_rst),
   .change(1'b1),
