@@ -8,12 +8,12 @@
 // Revision  : 2
 // Date      : 2011/04/13
 module RAM_ctrl (
+  input [99:0] game_table, // CY_ADD
   input clk,
   input rst_n,
   input change,
   input [3:0]addr_in,
   input en,
-  input data,
   output reg [7:0] data_out,
   output reg data_valid
 );
@@ -40,55 +40,75 @@ module RAM_ctrl (
   reg wen, wen_next;
   reg temp_change, temp_change_next;
 
+//-------------------
+	reg [9:0] data;
+	always @*
+	begin
+		case(cnt)
+			4'd0: data = game_table[9:0];
+			4'd1: data = game_table[19:10];
+			4'd2: data = game_table[29:20];
+			4'd3: data = game_table[39:30];
+			4'd4: data = game_table[49:40];
+			4'd5: data = game_table[59:50];
+			4'd6: data = game_table[69:60];
+			4'd7: data = game_table[79:70];
+			4'd8: data = game_table[89:80];
+			4'd9: data = game_table[99:90];
+			default: data = 10'd0;
+	end
+
+//-------------------
+
 
   always @*
    begin
-    if( cnt ==0 && addr_in == 0 && data[9]==0)
+    if(data[9]==0)
         in_temp0 = 6'b0000_00;
     else 
         in_temp0 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[8]==0)
+    if(data[8]==0)
         in_temp1 = 6'b0000_00;
     else 
         in_temp1 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[7]==0)
+    if(data[7]==0)
         in_temp2 = 6'b0000_00;
     else 
         in_temp2 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[6]==0)
+    if(data[6]==0)
         in_temp3 = 6'b0000_00;
     else 
         in_temp3 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[5]==0)
+    if(data[5]==0)
         in_temp4 = 6'b0000_00;
     else 
         in_temp4 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[4]==0)
+    if(data[4]==0)
         in_temp5 = 6'b0000_00;
     else 
         in_temp5 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[3]==0)
+    if(data[3]==0)
         in_temp6 = 6'b0000_00;
     else 
         in_temp6 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[2]==0)
+    if(data[2]==0)
         in_temp7 = 6'b0000_00;
     else 
         in_temp7 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[1]==0)
+    if(data[1]==0)
         in_temp8 = 6'b0000_00;
     else 
         in_temp8 = 6'b1111_11;
 
-    if( cnt ==0 && addr_in == 0 && data[0]==0)
+    if(data[0]==0)
         in_temp9 = 6'b0000_00;
     else 
         in_temp9 = 6'b1111_11;
