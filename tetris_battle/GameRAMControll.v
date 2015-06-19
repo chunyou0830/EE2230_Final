@@ -11,14 +11,15 @@
 // Revision: 
 // 		Revision 0.01 - File Created
 //////////////////////////////////////////////////////////////////////////////////
+`include "global.v"
 `define STAT_CREATE			3'b000
-`define STAT_MOVE_WAIT		3'b001
-`define STAT_MOVE_DOWN		3'b010
-`define STAT_MOVE_LEFT		3'b011
-`define STAT_MOVE_RIGHT		3'b100
-`define STAT_MOVE_ROTATE	3'b101
-`define STAT_STOP			3'b110
-`define STAT_CLEAR			3'b111
+`define STAT_STOP			3'b001
+`define STAT_CLEAR			3'b010
+`define STAT_MOVE_WAIT		3'b011
+`define STAT_MOVE_DOWN		3'b100
+`define STAT_MOVE_LEFT		3'b101
+`define STAT_MOVE_RIGHT		3'b110	
+`define STAT_MOVE_ROTATE	3'b111
 `define RAM_WRITE			1'b1
 `define RAM_READ			1'b0
 `define BLOCK_O				3'b001
@@ -32,13 +33,14 @@
 module GameRAMControll(
 	clk_40M,
 	clk_1,
+	rst,
 	pad_key,
 	pad_pressed,
 	game_addLine,
 	game_sendLine,
 	ram_status,
 	ram_addr,
-	ram_data
+	ram_data_out
 );
 
 	// I/O PORTS DECLARATION ----------
@@ -46,6 +48,7 @@ module GameRAMControll(
 	// System Basic
 	input clk_40M;
 	input clk_1;
+	input rst;
 
 	// Keypad Operation
 	input pad_key;
@@ -58,9 +61,10 @@ module GameRAMControll(
 	reg [2:0] state_next;
 
 	// Block Controll
-	reg [6:0] block_type;
-	reg [3:0] block_A_X, block_A_Y, block_B_X, block_B_Y, block_C_X, block_C_Y, block_D_X, block_D_Y;
-	reg [3:0] block_next_A_X, block_next_A_Y, block_next_B_X, block_next_B_Y, block_next_C_X, block_next_C_Y, block_next_D_X, block_next_D_Y;
+	reg move_available;
+	wire move_basic_check;
+	reg [2:0] block_type;
+	reg [6:0] block_A, block_B, block_C, block_D, block_next_A, block_next_B, block_next_C, block_next_D;
 	reg [99:0] game_table;
 
 	// RAM Controll
@@ -68,12 +72,12 @@ module GameRAMControll(
 	reg 	   ram_status_next;
 	output reg [3:0] ram_addr;
 	reg		   [3:0] ram_addr_next;
-	wire 	   [9:0] ram_data_in;
+	reg 	   [9:0] ram_data_in;
 	output reg [9:0] ram_data_out;
 
 
-	// BLOCK RANDOM CREATOR ----------
-	always @(posedge clk or posedge rst)
+	// BLOCK RANDOM CREATOR ---------- (Finished)
+	always @(posedge clk_40M or posedge rst)
 	begin
 		if(rst)
 		begin
@@ -93,28 +97,39 @@ module GameRAMControll(
 		case(state)
 			`STAT_CREATE:
 			begin
+				move_available = 1'b0;
 				/* Create a new block */
+				case(block_type)
+					`BLOCK_O:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd4 ,7'd5 ,7'd14,7'd15};
+					`BLOCK_L:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd25,7'd24,7'd14,7'd4 };
+					`BLOCK_J:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd24,7'd25,7'd15,7'd5 };
+					`BLOCK_I:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd5 ,7'd15,7'd25,7'd35};
+					`BLOCK_S:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd5 ,7'd4 ,7'd14,7'd13};
+					`BLOCK_Z:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd4 ,7'd5 ,7'd15,7'd16};
+					`BLOCK_T:{block_next_A,block_next_B,block_next_C,block_next_D} = {7'd6 ,7'd5 ,7'd4 ,7'd15};
+				endcase
 				state_next = `STAT_MOVE_WAIT;
 			end
 			`STAT_MOVE_WAIT:
 			begin
-				if(/* Force to move down */)
+				move_available = 1'b0;
+				if(1'b0) /* Force to move down UNFINISHED */
 				begin
 					state_next = `STAT_MOVE_DOWN;
 				end
-				else if(/* Press to move down*/)
+				else if(pad_key == `KEY_4) /* Press to move down */
 				begin
 					state_next = `STAT_MOVE_DOWN;
 				end
-				else if(/* Press to move left */)
+				else if(pad_key == `KEY_1)/* Press to move left */
 				begin
 					state_next = `STAT_MOVE_LEFT;
 				end
-				else if(/* Press to move right */)
+				else if(pad_key == `KEY_7)/* Press to move right */
 				begin
 					state_next = `STAT_MOVE_RIGHT;
 				end
-				else if (/* Press to rotate */)
+				else if (pad_key == `KEY_0)/* Press to rotate */
 				begin
 					state_next = `STAT_MOVE_ROTATE;
 				end
@@ -125,10 +140,14 @@ module GameRAMControll(
 			end
 			`STAT_MOVE_DOWN:
 			begin
-				/* Check if the block can move down */
-				if(/* Can move down */)
+				/* Generate next block */
+				block_next_A = block_A + 7'd10;
+				block_next_B = block_B + 7'd10;
+				block_next_C = block_C + 7'd10;
+				block_next_D = block_D + 7'd10;
+				move_available = move_basic_check;
+				if(move_available)
 				begin
-					/* Move down */
 					state_next = `STAT_MOVE_WAIT;
 				end
 				else
@@ -138,33 +157,38 @@ module GameRAMControll(
 			end
 			`STAT_MOVE_LEFT:
 			begin
-				/* Check if the block can move left */
-				if(/* Can */)
-				begin
-					/* Move it */
-				end
-				state_next = `STAT_MOVE_WAIT
+				/* Generate next block */
+				block_next_A = block_A - 7'd1;
+				block_next_B = block_B - 7'd1;
+				block_next_C = block_C - 7'd1;
+				block_next_D = block_D - 7'd1;
+				/* Check Movable */
+				move_available = (move_basic_check && (block_A % 7'd10 != 7'd0 ) && (block_B % 7'd10 != 7'd0 ) && (block_C % 7'd10 != 7'd0 ) && (block_D % 7'd10 != 7'd0 ));
+
+				state_next = `STAT_MOVE_WAIT;
 			end
 			`STAT_MOVE_RIGHT:
 			begin
-				/* Check */
-				if(/* Can */)
-				begin
-					/* Move it */
-				end
+				/* Generate next block */
+				block_next_A = block_A + 7'd1;
+				block_next_B = block_B + 7'd1;
+				block_next_C = block_C + 7'd1;
+				block_next_D = block_D + 7'd1;
+				/* Check Movable */
+				move_available = (move_basic_check && ((block_A+7'd1) % 7'd10 != 7'd0 ) && ((block_B+7'd1) % 7'd10 != 7'd0 ) && ((block_C+7'd1) % 7'd10 != 7'd0 ) && ((block_D+7'd1) % 7'd10 != 7'd0 ));
+
 				state_next = `STAT_MOVE_WAIT;
 			end
 			`STAT_MOVE_ROTATE:
 			begin
-				/* Check */
-				if(/* Can */)
-				begin
-					/* Move it */
-				end
+				/* Generate next block */
+					// çË™™
+				/* Check Movable */
 				state_next = `STAT_MOVE_WAIT;
 			end
 			default:
 			begin
+				move_available = 1'b0;
 				state_next = `STAT_MOVE_WAIT;
 			end
 		endcase
@@ -200,7 +224,7 @@ module GameRAMControll(
 	end
 
 	// State and Address Controll - Sequential Logic (Finished)
-	always @(posedge clk or posedge rst) begin
+	always @(posedge clk_40M or posedge rst) begin
 		if (rst) begin
 			ram_status <= `RAM_WRITE;
 			ram_addr <= 4'd0;
@@ -220,19 +244,19 @@ module GameRAMControll(
 	// RAM Read: Read from RAM to game table and output
 	always @*
 	begin
-		if(ram_state == `RAM_READ)
+		if(ram_status == `RAM_READ)
 		begin
 			case(ram_addr)
-				4'd0: [9:0]game_table = ram_data_out;
-				4'd1: [19:10]game_table = ram_data_out;
-				4'd2: [29:20]game_table = ram_data_out;
-				4'd3: [39:30]game_table = ram_data_out;
-				4'd4: [49:40]game_table = ram_data_out;
-				4'd5: [59:50]game_table = ram_data_out;
-				4'd6: [69:60]game_table = ram_data_out;
-				4'd7: [79:70]game_table = ram_data_out;
-				4'd8: [89:80]game_table = ram_data_out;
-				4'd9: [99:90]game_table = ram_data_out;
+				4'd0: game_table[9:0] = ram_data_out;
+				4'd1: game_table[19:10] = ram_data_out;
+				4'd2: game_table[29:20] = ram_data_out;
+				4'd3: game_table[39:30] = ram_data_out;
+				4'd4: game_table[49:40] = ram_data_out;
+				4'd5: game_table[59:50] = ram_data_out;
+				4'd6: game_table[69:60] = ram_data_out;
+				4'd7: game_table[79:70] = ram_data_out;
+				4'd8: game_table[89:80] = ram_data_out;
+				4'd9: game_table[99:90] = ram_data_out;
 				default: game_table = 100'd0;
 			endcase
 		end
@@ -241,31 +265,47 @@ module GameRAMControll(
 	// Ram Write (Finished): Save the game table to RAM
 	always @*
 	begin
-		if(ram_state == `RAM_WRITE)
+		if(ram_status == `RAM_WRITE)
 		begin
 			case(ram_addr)
-				4'd0: ram_data_in = [9:0]game_table;
-				4'd1: ram_data_in = [19:10]game_table;
-				4'd2: ram_data_in = [29:20]game_table;
-				4'd3: ram_data_in = [39:30]game_table;
-				4'd4: ram_data_in = [49:40]game_table;
-				4'd5: ram_data_in = [59:50]game_table;
-				4'd6: ram_data_in = [69:60]game_table;
-				4'd7: ram_data_in = [79:70]game_table;
-				4'd8: ram_data_in = [89:80]game_table;
-				4'd9: ram_data_in = [99:90]game_table;
+				4'd0: ram_data_in = game_table[9:0];
+				4'd1: ram_data_in = game_table[19:10];
+				4'd2: ram_data_in = game_table[29:20];
+				4'd3: ram_data_in = game_table[39:30];
+				4'd4: ram_data_in = game_table[49:40];
+				4'd5: ram_data_in = game_table[59:50];
+				4'd6: ram_data_in = game_table[69:60];
+				4'd7: ram_data_in = game_table[79:70];
+				4'd8: ram_data_in = game_table[89:80];
+				4'd9: ram_data_in = game_table[99:90];
 				default: ram_data_in = 10'd0;
 			endcase
 		end
-		else
 	end
 
 	// GAME TABLE CONTROLL ----------
-	always @*
+	always @(posedge clk_40M)
 	begin
-		if(/* The state needs to change */)
-			/* Change the bit in the game table */
+		if((state[2] == 1'b1 && move_available) || (state == `STAT_CREATE))
+		begin
+			game_table[block_A] <= 1'b0;
+			game_table[block_B] <= 1'b0;
+			game_table[block_C] <= 1'b0;
+			game_table[block_D] <= 1'b0;
+			game_table[block_next_A] <= 1'b1;
+			game_table[block_next_B] <= 1'b1;
+			game_table[block_next_C] <= 1'b1;
+			game_table[block_next_D] <= 1'b1;
+			block_A <= block_next_A;
+			block_B <= block_next_B;
+			block_C <= block_next_C;
+			block_D <= block_next_D;
+		end
 	end
 
+	assign move_basic_check = (((block_next_A == block_A || block_next_A == block_B || block_next_A == block_C || block_next_A == block_D) && game_table[block_next_A]) || (~(block_next_A == block_A || block_next_A == block_B || block_next_A == block_C || block_next_A == block_D) && ~game_table[block_next_A])) &&
+			       			  (((block_next_B == block_A || block_next_B == block_B || block_next_B == block_C || block_next_B == block_D) && game_table[block_next_B]) || (~(block_next_B == block_A || block_next_B == block_B || block_next_B == block_C || block_next_B == block_D) && ~game_table[block_next_B])) &&
+					 		  (((block_next_C == block_A || block_next_C == block_B || block_next_C == block_C || block_next_C == block_D) && game_table[block_next_C]) || (~(block_next_C == block_A || block_next_C == block_B || block_next_C == block_C || block_next_C == block_D) && ~game_table[block_next_C])) &&
+					 		  (((block_next_D == block_A || block_next_D == block_B || block_next_D == block_C || block_next_D == block_D) && game_table[block_next_D]) || (~(block_next_D == block_A || block_next_D == block_B || block_next_D == block_C || block_next_D == block_D) && ~game_table[block_next_D]));
 
 endmodule

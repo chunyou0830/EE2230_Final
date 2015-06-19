@@ -1,0 +1,327 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: GameRAMControll.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "GameRAMControll.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "GameRAMControll"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : GameRAMControll
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\Programming\EE2230_Final\tetris_battle\GameRAMControll.v" into library work
+Parsing verilog file "global.v" included at line 14.
+Parsing module <GameRAMControll>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <GameRAMControll>.
+ERROR:HDLCompiler:1401 - "D:\Programming\EE2230_Final\tetris_battle\GameRAMControll.v" Line 245: Signal game_table[99] in unit GameRAMControll is connected to following multiple drivers:
+Driver 0: output signal game_table[99] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[99] of instance Latch (game_table[99]).
+Driver 0: output signal game_table[98] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[98] of instance Latch (game_table[98]).
+Driver 0: output signal game_table[97] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[97] of instance Latch (game_table[97]).
+Driver 0: output signal game_table[96] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[96] of instance Latch (game_table[96]).
+Driver 0: output signal game_table[95] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[95] of instance Latch (game_table[95]).
+Driver 0: output signal game_table[94] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[94] of instance Latch (game_table[94]).
+Driver 0: output signal game_table[93] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[93] of instance Latch (game_table[93]).
+Driver 0: output signal game_table[92] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[92] of instance Latch (game_table[92]).
+Driver 0: output signal game_table[91] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[91] of instance Latch (game_table[91]).
+Driver 0: output signal game_table[90] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[90] of instance Latch (game_table[90]).
+Driver 0: output signal game_table[89] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[89] of instance Latch (game_table[89]).
+Driver 0: output signal game_table[88] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[88] of instance Latch (game_table[88]).
+Driver 0: output signal game_table[87] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[87] of instance Latch (game_table[87]).
+Driver 0: output signal game_table[86] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[86] of instance Latch (game_table[86]).
+Driver 0: output signal game_table[85] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[85] of instance Latch (game_table[85]).
+Driver 0: output signal game_table[84] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[84] of instance Latch (game_table[84]).
+Driver 0: output signal game_table[83] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[83] of instance Latch (game_table[83]).
+Driver 0: output signal game_table[82] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[82] of instance Latch (game_table[82]).
+Driver 0: output signal game_table[81] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[81] of instance Latch (game_table[81]).
+Driver 0: output signal game_table[80] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[80] of instance Latch (game_table[80]).
+Driver 0: output signal game_table[79] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[79] of instance Latch (game_table[79]).
+Driver 0: output signal game_table[78] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[78] of instance Latch (game_table[78]).
+Driver 0: output signal game_table[77] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[77] of instance Latch (game_table[77]).
+Driver 0: output signal game_table[76] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[76] of instance Latch (game_table[76]).
+Driver 0: output signal game_table[75] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[75] of instance Latch (game_table[75]).
+Driver 0: output signal game_table[74] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[74] of instance Latch (game_table[74]).
+Driver 0: output signal game_table[73] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[73] of instance Latch (game_table[73]).
+Driver 0: output signal game_table[72] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[72] of instance Latch (game_table[72]).
+Driver 0: output signal game_table[71] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[71] of instance Latch (game_table[71]).
+Driver 0: output signal game_table[70] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[70] of instance Latch (game_table[70]).
+Driver 0: output signal game_table[69] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[69] of instance Latch (game_table[69]).
+Driver 0: output signal game_table[68] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[68] of instance Latch (game_table[68]).
+Driver 0: output signal game_table[67] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[67] of instance Latch (game_table[67]).
+Driver 0: output signal game_table[66] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[66] of instance Latch (game_table[66]).
+Driver 0: output signal game_table[65] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[65] of instance Latch (game_table[65]).
+Driver 0: output signal game_table[64] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[64] of instance Latch (game_table[64]).
+Driver 0: output signal game_table[63] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[63] of instance Latch (game_table[63]).
+Driver 0: output signal game_table[62] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[62] of instance Latch (game_table[62]).
+Driver 0: output signal game_table[61] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[61] of instance Latch (game_table[61]).
+Driver 0: output signal game_table[60] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[60] of instance Latch (game_table[60]).
+Driver 0: output signal game_table[59] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[59] of instance Latch (game_table[59]).
+Driver 0: output signal game_table[58] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[58] of instance Latch (game_table[58]).
+Driver 0: output signal game_table[57] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[57] of instance Latch (game_table[57]).
+Driver 0: output signal game_table[56] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[56] of instance Latch (game_table[56]).
+Driver 0: output signal game_table[55] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[55] of instance Latch (game_table[55]).
+Driver 0: output signal game_table[54] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[54] of instance Latch (game_table[54]).
+Driver 0: output signal game_table[53] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[53] of instance Latch (game_table[53]).
+Driver 0: output signal game_table[52] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[52] of instance Latch (game_table[52]).
+Driver 0: output signal game_table[51] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[51] of instance Latch (game_table[51]).
+Driver 0: output signal game_table[50] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[50] of instance Latch (game_table[50]).
+Driver 0: output signal game_table[49] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[49] of instance Latch (game_table[49]).
+Driver 0: output signal game_table[48] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[48] of instance Latch (game_table[48]).
+Driver 0: output signal game_table[47] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[47] of instance Latch (game_table[47]).
+Driver 0: output signal game_table[46] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[46] of instance Latch (game_table[46]).
+Driver 0: output signal game_table[45] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[45] of instance Latch (game_table[45]).
+Driver 0: output signal game_table[44] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[44] of instance Latch (game_table[44]).
+Driver 0: output signal game_table[43] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[43] of instance Latch (game_table[43]).
+Driver 0: output signal game_table[42] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[42] of instance Latch (game_table[42]).
+Driver 0: output signal game_table[41] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[41] of instance Latch (game_table[41]).
+Driver 0: output signal game_table[40] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[40] of instance Latch (game_table[40]).
+Driver 0: output signal game_table[39] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[39] of instance Latch (game_table[39]).
+Driver 0: output signal game_table[38] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[38] of instance Latch (game_table[38]).
+Driver 0: output signal game_table[37] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[37] of instance Latch (game_table[37]).
+Driver 0: output signal game_table[36] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[36] of instance Latch (game_table[36]).
+Driver 0: output signal game_table[35] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[35] of instance Latch (game_table[35]).
+Driver 0: output signal game_table[34] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[34] of instance Latch (game_table[34]).
+Driver 0: output signal game_table[33] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[33] of instance Latch (game_table[33]).
+Driver 0: output signal game_table[32] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[32] of instance Latch (game_table[32]).
+Driver 0: output signal game_table[31] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[31] of instance Latch (game_table[31]).
+Driver 0: output signal game_table[30] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[30] of instance Latch (game_table[30]).
+Driver 0: output signal game_table[29] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[29] of instance Latch (game_table[29]).
+Driver 0: output signal game_table[28] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[28] of instance Latch (game_table[28]).
+Driver 0: output signal game_table[27] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[27] of instance Latch (game_table[27]).
+Driver 0: output signal game_table[26] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[26] of instance Latch (game_table[26]).
+Driver 0: output signal game_table[25] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[25] of instance Latch (game_table[25]).
+Driver 0: output signal game_table[24] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[24] of instance Latch (game_table[24]).
+Driver 0: output signal game_table[23] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[23] of instance Latch (game_table[23]).
+Driver 0: output signal game_table[22] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[22] of instance Latch (game_table[22]).
+Driver 0: output signal game_table[21] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[21] of instance Latch (game_table[21]).
+Driver 0: output signal game_table[20] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[20] of instance Latch (game_table[20]).
+Driver 0: output signal game_table[19] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[19] of instance Latch (game_table[19]).
+Driver 0: output signal game_table[18] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[18] of instance Latch (game_table[18]).
+Driver 0: output signal game_table[17] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[17] of instance Latch (game_table[17]).
+Driver 0: output signal game_table[16] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[16] of instance Latch (game_table[16]).
+Driver 0: output signal game_table[15] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[15] of instance Latch (game_table[15]).
+Driver 0: output signal game_table[14] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[14] of instance Latch (game_table[14]).
+Driver 0: output signal game_table[13] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[13] of instance Latch (game_table[13]).
+Driver 0: output signal game_table[12] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[12] of instance Latch (game_table[12]).
+Driver 0: output signal game_table[11] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[11] of instance Latch (game_table[11]).
+Driver 0: output signal game_table[10] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[10] of instance Latch (game_table[10]).
+Driver 0: output signal game_table[9] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[9] of instance Latch (game_table[9]).
+Driver 0: output signal game_table[8] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[8] of instance Latch (game_table[8]).
+Driver 0: output signal game_table[7] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[7] of instance Latch (game_table[7]).
+Driver 0: output signal game_table[6] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[6] of instance Latch (game_table[6]).
+Driver 0: output signal game_table[5] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[5] of instance Latch (game_table[5]).
+Driver 0: output signal game_table[4] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[4] of instance Latch (game_table[4]).
+Driver 0: output signal game_table[3] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[3] of instance Latch (game_table[3]).
+Driver 0: output signal game_table[2] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[2] of instance Latch (game_table[2]).
+Driver 0: output signal game_table[1] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[1] of instance Latch (game_table[1]).
+Driver 0: output signal game_table[0] of instance Flip-flop (game_table).
+Driver 1: output signal game_table[0] of instance Latch (game_table[0]).
+Module GameRAMControll remains a blackbox, due to errors in its contents
+WARNING:HDLCompiler:1499 - "D:\Programming\EE2230_Final\tetris_battle\GameRAMControll.v" Line 33: Empty module <GameRAMControll> remains a black box.
+--> 
+
+Total memory usage is 203336 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
