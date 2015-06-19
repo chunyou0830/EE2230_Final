@@ -30,15 +30,8 @@ module LCD_Control_Test(
 	wire [3:0] addr;
 	wire [9:0] data_out;
 	wire [63:0] conv_data;
-	wire clk_1, clk_100;
 	wire out_valid;
 	wire [7:0] ram_data_out;
-clock_generator clk_gen(
-	.clk(clk),
-	.rst(rst),
-	.clk_1(clk_1),
-	.clk_100(clk_100)
-);
 
   clock_divider #(
     .half_cycle(200),         // half cycle = 200 (divided by 400)
