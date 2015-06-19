@@ -117,11 +117,11 @@ module GameRAMControll(
 			begin
 				//move_available = 1'b0;
 
-				//if(1'b0) /* Force to move down UNFINISHED */
-				//begin
-				//	state_next = `STAT_MOVE_DOWN;
-				//end
-				if(pad_pressed && pad_key == `KEY_4) /* Press to move down */
+				if(~pad_pressed) /* Force to move down UNFINISHED */
+				begin
+					state_next = `STAT_MOVE_DOWN;
+				end
+				else if(pad_pressed && pad_key == `KEY_4) /* Press to move down */
 				begin
 					state_next = `STAT_MOVE_DOWN;
 				end
@@ -236,9 +236,10 @@ module GameRAMControll(
 			end
 		endcase
 	end
-
+	//wire clk_state_trig;
+	//assign clk_state_trig = clk_1 || pad_pressed;
 	// Sequential Logics
-	always @(posedge clk_40M or posedge rst)
+	always @(posedge clk_1 or posedge rst)
 	begin
 		if (rst)
 		begin

@@ -1,9 +1,10 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Jun 19 22:50:34 2015
+// Written by: Map P.20131013 on Sat Jun 20 00:58:14 2015
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "R10" LEVEL 1;
+COMP "led" LOCATE = SITE "H5" LEVEL 1;
 COMP "col_in<0>" LOCATE = SITE "J3" LEVEL 1;
 COMP "col_in<1>" LOCATE = SITE "J1" LEVEL 1;
 COMP "col_in<2>" LOCATE = SITE "H2" LEVEL 1;
