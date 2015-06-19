@@ -1,0 +1,17 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Fri Jun 19 22:35:46 2015
+
+drc -z LCD_Control_Test.ncd LCD_Control_Test.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   game_ctrl/state[2]_GND_36_o_Mux_263_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   game_ctrl/state[2]_GND_35_o_Mux_261_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+DRC detected 0 errors and 2 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
