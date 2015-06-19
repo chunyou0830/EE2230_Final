@@ -38,9 +38,7 @@ module GameRAMControll(
 	pad_pressed,
 	game_addLine,
 	game_sendLine,
-	ram_status,
-	ram_addr,
-	ram_data_out
+	game_table_output
 );
 
 	// I/O PORTS DECLARATION ----------
@@ -68,12 +66,7 @@ module GameRAMControll(
 	reg [99:0] game_table;
 
 	// RAM Controll
-	output reg ram_status;
-	reg 	   ram_status_next;
-	output reg [3:0] ram_addr;
-	reg		   [3:0] ram_addr_next;
-	reg 	   [9:0] ram_data_in;
-	output reg [9:0] ram_data_out;
+	output [99:0] game_table_output;
 
 
 	// BLOCK RANDOM CREATOR ---------- (Finished)
@@ -182,7 +175,7 @@ module GameRAMControll(
 			`STAT_MOVE_ROTATE:
 			begin
 				/* Generate next block */
-					// çË™™
+					// çBlablabla
 				/* Check Movable */
 				state_next = `STAT_MOVE_WAIT;
 			end
@@ -207,83 +200,9 @@ module GameRAMControll(
 		end
 	end
 
-	// RAM CONTROLL ----------
-
-	// State and Address Controll - Combinational Logic (Finished)
-	always @*
-	begin
-		if(state == `STAT_MOVE_WAIT)
-		begin
-			ram_status_next = `RAM_READ;
-			ram_addr_next = ram_addr + 1'b1;
-		end
-		else
-		begin
-			ram_status_next = `RAM_WRITE;
-		end
-	end
-
-	// State and Address Controll - Sequential Logic (Finished)
-	always @(posedge clk_40M or posedge rst) begin
-		if (rst) begin
-			ram_status <= `RAM_WRITE;
-			ram_addr <= 4'd0;
-		end
-		else if (ram_addr == 4'd9)
-		begin
-			ram_status <= ram_status_next;
-			ram_addr <= 4'd0;	
-		end
-		else
-		begin
-			ram_status <= ram_status_next;
-			ram_addr <= ram_addr_next;
-		end
-	end
-
-	// RAM Read: Read from RAM to game table and output
-	always @*
-	begin
-		if(ram_status == `RAM_READ)
-		begin
-			case(ram_addr)
-				4'd0: game_table[9:0] = ram_data_out;
-				4'd1: game_table[19:10] = ram_data_out;
-				4'd2: game_table[29:20] = ram_data_out;
-				4'd3: game_table[39:30] = ram_data_out;
-				4'd4: game_table[49:40] = ram_data_out;
-				4'd5: game_table[59:50] = ram_data_out;
-				4'd6: game_table[69:60] = ram_data_out;
-				4'd7: game_table[79:70] = ram_data_out;
-				4'd8: game_table[89:80] = ram_data_out;
-				4'd9: game_table[99:90] = ram_data_out;
-				default: game_table = 100'd0;
-			endcase
-		end
-	end
-
-	// Ram Write (Finished): Save the game table to RAM
-	always @*
-	begin
-		if(ram_status == `RAM_WRITE)
-		begin
-			case(ram_addr)
-				4'd0: ram_data_in = game_table[9:0];
-				4'd1: ram_data_in = game_table[19:10];
-				4'd2: ram_data_in = game_table[29:20];
-				4'd3: ram_data_in = game_table[39:30];
-				4'd4: ram_data_in = game_table[49:40];
-				4'd5: ram_data_in = game_table[59:50];
-				4'd6: ram_data_in = game_table[69:60];
-				4'd7: ram_data_in = game_table[79:70];
-				4'd8: ram_data_in = game_table[89:80];
-				4'd9: ram_data_in = game_table[99:90];
-				default: ram_data_in = 10'd0;
-			endcase
-		end
-	end
-
 	// GAME TABLE CONTROLL ----------
+	assign game_table_output = game_table;
+
 	always @(posedge clk_40M)
 	begin
 		if((state[2] == 1'b1 && move_available) || (state == `STAT_CREATE))
