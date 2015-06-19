@@ -23,7 +23,7 @@
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v</arg>&quot; line <arg fmt="%s" index="2">72</arg>: Output port &lt;<arg fmt="%s" index="3">game_sendLine</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">game_ctrl</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">clk_1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">clk_1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">game_addLine</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -134,10 +134,6 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">addr_in</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">clk_gen</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-It will be removed from the design.
-</msg>
-
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">block_rotate_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_ctrl</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -148,81 +144,6 @@ It will be removed from the design.
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">block_rotate_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">GameRAMControll</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_20M_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">clk_gen/count_200K_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
@@ -280,9 +201,6 @@ It will be removed from the design.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">clk_gen/clk_100</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">clk_gen/clk_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">LCD_Control_Test</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.

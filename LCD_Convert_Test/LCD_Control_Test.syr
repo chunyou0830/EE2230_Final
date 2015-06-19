@@ -643,8 +643,6 @@ Macro Statistics
 
 Reading core <ipcore_dir/RAM.ngc>.
 Loading core <RAM> for timing and area information for instance <R1>.
-WARNING:Xst:1290 - Hierarchical block <clk_gen> is unconnected in block <LCD_Control_Test>.
-   It will be removed from the design.
 WARNING:Xst:1710 - FF/Latch <block_rotate_1> (without init value) has a constant value of 0 in block <game_ctrl>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <GameRAMControll>.
@@ -813,18 +811,6 @@ Macro Statistics
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <block_rotate_1> (without init value) has a constant value of 0 in block <GameRAMControll>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <game_ctrl/FSM_0> on signal <state[1:3]> with user encoding.
--------------------
- State | Encoding
--------------------
- 001   | 001
- 011   | 011
- 111   | 111
- 110   | 110
- 101   | 101
- 100   | 100
--------------------
-Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <ram_c/FSM_1> on signal <state[1:2]> with user encoding.
 -------------------
  State | Encoding
@@ -846,6 +832,18 @@ Optimizing FSM <LCD_ctrl/FSM_2> on signal <state[1:3]> with user encoding.
  011   | 011
  010   | 010
 -------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <game_ctrl/FSM_0> on signal <state[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 001   | 001
+ 011   | 011
+ 111   | 111
+ 110   | 110
+ 101   | 101
+ 100   | 100
+-------------------
 
 Optimizing unit <LCD_Control_Test> ...
 
@@ -853,36 +851,11 @@ Optimizing unit <keypad_scan> ...
 
 Optimizing unit <clock_generator> ...
 
-Optimizing unit <GameRAMControll> ...
-
 Optimizing unit <RAM_ctrl> ...
 
 Optimizing unit <LCD_control> ...
-WARNING:Xst:2677 - Node <clk_gen/count_20M_24> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_23> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_22> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_21> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_20> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_19> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_18> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_17> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_16> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_15> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_14> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_13> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_12> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_11> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_10> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_9> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_8> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_7> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_6> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_5> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_4> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_3> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_2> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_1> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/count_20M_0> of sequential type is unconnected in block <LCD_Control_Test>.
+
+Optimizing unit <GameRAMControll> ...
 WARNING:Xst:2677 - Node <clk_gen/count_200K_17> of sequential type is unconnected in block <LCD_Control_Test>.
 WARNING:Xst:2677 - Node <clk_gen/count_200K_16> of sequential type is unconnected in block <LCD_Control_Test>.
 WARNING:Xst:2677 - Node <clk_gen/count_200K_15> of sequential type is unconnected in block <LCD_Control_Test>.
@@ -902,42 +875,40 @@ WARNING:Xst:2677 - Node <clk_gen/count_200K_2> of sequential type is unconnected
 WARNING:Xst:2677 - Node <clk_gen/count_200K_1> of sequential type is unconnected in block <LCD_Control_Test>.
 WARNING:Xst:2677 - Node <clk_gen/count_200K_0> of sequential type is unconnected in block <LCD_Control_Test>.
 WARNING:Xst:2677 - Node <clk_gen/clk_100> of sequential type is unconnected in block <LCD_Control_Test>.
-WARNING:Xst:2677 - Node <clk_gen/clk_1> of sequential type is unconnected in block <LCD_Control_Test>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block LCD_Control_Test, actual ratio is 34.
-FlipFlop game_ctrl/block_A_0 has been replicated 1 time(s)
-FlipFlop game_ctrl/block_A_1 has been replicated 2 time(s)
+Found area constraint ratio of 100 (+ 5) on block LCD_Control_Test, actual ratio is 35.
+FlipFlop game_ctrl/block_A_0 has been replicated 2 time(s)
+FlipFlop game_ctrl/block_A_1 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_A_2 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_A_3 has been replicated 4 time(s)
-FlipFlop game_ctrl/block_A_4 has been replicated 3 time(s)
+FlipFlop game_ctrl/block_A_4 has been replicated 4 time(s)
 FlipFlop game_ctrl/block_A_5 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_A_6 has been replicated 2 time(s)
-FlipFlop game_ctrl/block_B_0 has been replicated 1 time(s)
-FlipFlop game_ctrl/block_B_1 has been replicated 2 time(s)
+FlipFlop game_ctrl/block_B_0 has been replicated 2 time(s)
+FlipFlop game_ctrl/block_B_1 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_B_2 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_B_3 has been replicated 3 time(s)
-FlipFlop game_ctrl/block_B_4 has been replicated 4 time(s)
+FlipFlop game_ctrl/block_B_4 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_B_5 has been replicated 2 time(s)
-FlipFlop game_ctrl/block_B_6 has been replicated 2 time(s)
+FlipFlop game_ctrl/block_B_6 has been replicated 1 time(s)
 FlipFlop game_ctrl/block_C_0 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_C_1 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_C_2 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_C_3 has been replicated 3 time(s)
-FlipFlop game_ctrl/block_C_4 has been replicated 3 time(s)
-FlipFlop game_ctrl/block_C_5 has been replicated 3 time(s)
+FlipFlop game_ctrl/block_C_4 has been replicated 5 time(s)
+FlipFlop game_ctrl/block_C_5 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_C_6 has been replicated 3 time(s)
 FlipFlop game_ctrl/block_D_0 has been replicated 1 time(s)
 FlipFlop game_ctrl/block_D_1 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_D_2 has been replicated 1 time(s)
 FlipFlop game_ctrl/block_D_3 has been replicated 2 time(s)
 FlipFlop game_ctrl/block_D_4 has been replicated 2 time(s)
-FlipFlop game_ctrl/block_D_5 has been replicated 2 time(s)
+FlipFlop game_ctrl/block_D_5 has been replicated 1 time(s)
 FlipFlop game_ctrl/block_D_6 has been replicated 2 time(s)
 FlipFlop game_ctrl/state_FSM_FFd1 has been replicated 1 time(s)
 FlipFlop game_ctrl/state_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop ram_c/counter_word_1 has been replicated 5 time(s)
 
 Final Macro Processing ...
 
@@ -945,8 +916,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 800
- Flip-Flops                                            : 800
+# Registers                                            : 824
+ Flip-Flops                                            : 824
 
 =========================================================================
 
@@ -969,29 +940,30 @@ Top Level Output File Name         : LCD_Control_Test.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2351
+# BELS                             : 2445
 #      GND                         : 2
-#      INV                         : 9
-#      LUT2                        : 39
-#      LUT3                        : 189
-#      LUT4                        : 87
-#      LUT5                        : 1056
-#      LUT6                        : 932
-#      MUXCY                       : 7
+#      INV                         : 11
+#      LUT1                        : 24
+#      LUT2                        : 64
+#      LUT3                        : 188
+#      LUT4                        : 85
+#      LUT5                        : 1046
+#      LUT6                        : 939
+#      MUXCY                       : 31
 #      MUXF7                       : 20
 #      VCC                         : 2
-#      XORCY                       : 8
-# FlipFlops/Latches                : 832
-#      FDC                         : 45
-#      FDCE                        : 658
-#      FDE                         : 93
+#      XORCY                       : 33
+# FlipFlops/Latches                : 856
+#      FDC                         : 70
+#      FDCE                        : 654
+#      FDE                         : 96
 #      FDP                         : 3
 #      FDPE                        : 1
 #      LD                          : 32
 # RAMS                             : 1
 #      RAMB16BWER                  : 1
-# Clock Buffers                    : 3
-#      BUFG                        : 2
+# Clock Buffers                    : 4
+#      BUFG                        : 3
 #      BUFGP                       : 1
 # IO Buffers                       : 23
 #      IBUF                        : 5
@@ -1004,16 +976,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             832  out of  18224     4%  
- Number of Slice LUTs:                 2312  out of   9112    25%  
-    Number used as Logic:              2312  out of   9112    25%  
+ Number of Slice Registers:             856  out of  18224     4%  
+ Number of Slice LUTs:                 2357  out of   9112    25%  
+    Number used as Logic:              2357  out of   9112    25%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2395
-   Number with an unused Flip Flop:    1563  out of   2395    65%  
-   Number with an unused LUT:            83  out of   2395     3%  
-   Number of fully used LUT-FF pairs:   749  out of   2395    31%  
-   Number of unique control sets:        18
+ Number of LUT Flip Flop pairs used:   2439
+   Number with an unused Flip Flop:    1583  out of   2439    64%  
+   Number with an unused LUT:            82  out of   2439     3%  
+   Number of fully used LUT-FF pairs:   774  out of   2439    31%  
+   Number of unique control sets:        20
 
 IO Utilization: 
  Number of IOs:                          24
@@ -1022,7 +994,7 @@ IO Utilization:
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                1  out of     32     3%  
     Number using Block RAM only:          1
- Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
 
 ---------------------------
 Partition Resource Summary:
@@ -1045,8 +1017,9 @@ Clock Information:
 -----------------------------------------------------------------------------------------------+----------------------------------+-------+
 Clock Signal                                                                                   | Clock buffer(FF name)            | Load  |
 -----------------------------------------------------------------------------------------------+----------------------------------+-------+
-clk                                                                                            | BUFGP                            | 210   |
-clk100K/clk_div                                                                                | BUFG                             | 591   |
+clk                                                                                            | BUFGP                            | 35    |
+clk100K/clk_div                                                                                | BUFG                             | 586   |
+clk_gen/clk_1                                                                                  | BUFG                             | 204   |
 game_ctrl/state[2]_GND_35_o_Mux_261_o(game_ctrl/state__n1896<0>1:O)                            | NONE(*)(game_ctrl/move_available)| 1     |
 game_ctrl/state[2]_block_type[2]_Mux_151_o(game_ctrl/Mmux_state[2]_block_type[2]_Mux_151_o11:O)| BUFG(*)(game_ctrl/block_next_A_1)| 28    |
 game_ctrl/state[2]_GND_36_o_Mux_263_o(game_ctrl/state[2]_GND_36_o_Mux_263_o1:O)                | NONE(*)(game_ctrl/block_type_0)  | 3     |
@@ -1064,8 +1037,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 5.955ns (Maximum Frequency: 167.918MHz)
-   Minimum input arrival time before clock: 4.645ns
+   Minimum period: 6.042ns (Maximum Frequency: 165.519MHz)
+   Minimum input arrival time before clock: 4.650ns
    Maximum output required time after clock: 4.761ns
    Maximum combinational path delay: 4.443ns
 
@@ -1075,61 +1048,84 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.955ns (frequency: 167.918MHz)
-  Total number of paths / destination ports: 13192 / 311
+  Clock period: 4.394ns (frequency: 227.582MHz)
+  Total number of paths / destination ports: 1352 / 37
 -------------------------------------------------------------------------
-Delay:               5.955ns (Levels of Logic = 6)
-  Source:            game_ctrl/block_C_4_2 (FF)
-  Destination:       game_ctrl/state_FSM_FFd2 (FF)
+Delay:               4.394ns (Levels of Logic = 3)
+  Source:            clk_gen/count_20M_3 (FF)
+  Destination:       clk_gen/count_20M_24 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: game_ctrl/block_C_4_2 to game_ctrl/state_FSM_FFd2
+  Data Path: clk_gen/count_20M_3 to clk_gen/count_20M_24
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              3   0.447   0.755  game_ctrl/block_C_4_2 (game_ctrl/block_C_4_2)
-     LUT4:I2->O            1   0.203   0.580  game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o3_SW0 (N37)
-     LUT5:I4->O            2   0.205   0.864  game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o3 (game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o3)
-     LUT6:I2->O            1   0.203   0.684  game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o8 (game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o8)
-     LUT6:I4->O            1   0.203   0.580  game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o15 (game_ctrl/block_next_B[6]_block_next_B[6]_OR_116_o)
-     LUT4:I3->O            2   0.205   0.721  game_ctrl/state_FSM_FFd2-In41_SW0 (N8)
-     LUT6:I4->O            2   0.203   0.000  game_ctrl/state_FSM_FFd2-In (game_ctrl/state_FSM_FFd2-In)
-     FDC:D                     0.102          game_ctrl/state_FSM_FFd2
+     FDC:C->Q              2   0.447   0.981  clk_gen/count_20M_3 (clk_gen/count_20M_3)
+     LUT6:I0->O            1   0.203   0.944  clk_gen/GND_3_o_GND_3_o_equal_1_o<24>1 (clk_gen/GND_3_o_GND_3_o_equal_1_o<24>)
+     LUT6:I0->O           26   0.203   1.311  clk_gen/GND_3_o_GND_3_o_equal_1_o<24>5 (clk_gen/GND_3_o_GND_3_o_equal_1_o)
+     LUT2:I0->O            1   0.203   0.000  clk_gen/Mcount_count_20M_eqn_241 (clk_gen/Mcount_count_20M_eqn_24)
+     FDC:D                     0.102          clk_gen/count_20M_24
     ----------------------------------------
-    Total                      5.955ns (1.771ns logic, 4.184ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      4.394ns (1.158ns logic, 3.236ns route)
+                                       (26.4% logic, 73.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk100K/clk_div'
-  Clock period: 5.568ns (frequency: 179.598MHz)
-  Total number of paths / destination ports: 8352 / 1232
+  Clock period: 5.667ns (frequency: 176.449MHz)
+  Total number of paths / destination ports: 8323 / 1222
 -------------------------------------------------------------------------
-Delay:               5.568ns (Levels of Logic = 4)
-  Source:            ram_c/counter_word_0 (FF)
+Delay:               5.667ns (Levels of Logic = 4)
+  Source:            ram_c/counter_word_1 (FF)
   Destination:       ram_c/data_out_7 (FF)
   Source Clock:      clk100K/clk_div rising
   Destination Clock: clk100K/clk_div rising
 
-  Data Path: ram_c/counter_word_0 to ram_c/data_out_7
+  Data Path: ram_c/counter_word_1 to ram_c/data_out_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q           135   0.447   1.969  ram_c/counter_word_0 (ram_c/counter_word_0)
-     LUT6:I5->O            1   0.205   0.827  ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_123 (ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_123)
+     FDCE:C->Q           134   0.447   2.071  ram_c/counter_word_1 (ram_c/counter_word_1)
+     LUT6:I4->O            1   0.203   0.827  ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_123 (ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_123)
      LUT6:I2->O            1   0.203   0.827  ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_71 (ram_c/Mmux_GND_42_o_mem[511]_Mux_592_o_71)
      LUT6:I2->O            1   0.203   0.580  ram_c/Mmux_data_out_next11 (ram_c/Mmux_data_out_next1)
      LUT4:I3->O            1   0.205   0.000  ram_c/Mmux_data_out_next12 (ram_c/data_out_next<0>)
      FDC:D                     0.102          ram_c/data_out_0
     ----------------------------------------
-    Total                      5.568ns (1.365ns logic, 4.203ns route)
-                                       (24.5% logic, 75.5% route)
+    Total                      5.667ns (1.363ns logic, 4.304ns route)
+                                       (24.0% logic, 76.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_gen/clk_1'
+  Clock period: 6.042ns (frequency: 165.519MHz)
+  Total number of paths / destination ports: 12857 / 304
+-------------------------------------------------------------------------
+Delay:               6.042ns (Levels of Logic = 5)
+  Source:            game_ctrl/block_A_5_1 (FF)
+  Destination:       game_ctrl/game_table_63 (FF)
+  Source Clock:      clk_gen/clk_1 rising
+  Destination Clock: clk_gen/clk_1 rising
+
+  Data Path: game_ctrl/block_A_5_1 to game_ctrl/game_table_63
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.447   0.944  game_ctrl/block_A_5_1 (game_ctrl/block_A_5_1)
+     LUT6:I0->O            8   0.203   1.031  game_ctrl/block_A[6]_PWR_5_o_LessThan_20_o1 (game_ctrl/block_A[6]_PWR_5_o_LessThan_20_o)
+     LUT6:I3->O           13   0.205   0.933  game_ctrl/PWR_5_o_state[2]_OR_100_o_1 (game_ctrl/PWR_5_o_state[2]_OR_100_o1)
+     LUT4:I3->O           15   0.205   0.982  game_ctrl/Mmux_game_table[99]_PWR_5_o_MUX_1458_o121 (game_ctrl/Mmux_game_table[99]_PWR_5_o_MUX_1458_o12)
+     LUT6:I5->O            1   0.205   0.580  game_ctrl/Mmux_game_table[99]_PWR_5_o_MUX_1458_o14_SW0 (N101)
+     LUT6:I5->O            1   0.205   0.000  game_ctrl/Mmux_game_table[99]_PWR_5_o_MUX_1458_o16 (game_ctrl/game_table[99]_PWR_5_o_MUX_1458_o)
+     FDCE:D                    0.102          game_ctrl/game_table_63
+    ----------------------------------------
+    Total                      6.042ns (1.572ns logic, 4.470ns route)
+                                       (26.0% logic, 74.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 210 / 210
+  Total number of paths / destination ports: 35 / 35
 -------------------------------------------------------------------------
-Offset:              4.645ns (Levels of Logic = 2)
+Offset:              4.650ns (Levels of Logic = 2)
   Source:            pb_in_rst (PAD)
   Destination:       clk100K/clk_div (FF)
   Destination Clock: clk rising
@@ -1139,17 +1135,17 @@ Offset:              4.645ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             3   1.222   0.650  pb_in_rst_IBUF (pb_in_rst_IBUF)
-     INV:I->O            707   0.206   2.136  clk100K/rst_n_inv1_INV_0 (LCD_ctrl/rst_n_inv)
+     INV:I->O            728   0.206   2.141  clk100K/rst_n_inv1_INV_0 (LCD_ctrl/rst_n_inv)
      FDCE:CLR                  0.430          clk100K/clk_div
     ----------------------------------------
-    Total                      4.645ns (1.858ns logic, 2.787ns route)
+    Total                      4.650ns (1.858ns logic, 2.792ns route)
                                        (40.0% logic, 60.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk100K/clk_div'
-  Total number of paths / destination ports: 630 / 600
+  Total number of paths / destination ports: 625 / 595
 -------------------------------------------------------------------------
-Offset:              4.645ns (Levels of Logic = 2)
+Offset:              4.650ns (Levels of Logic = 2)
   Source:            pb_in_rst (PAD)
   Destination:       pad_scn/sel_1 (FF)
   Destination Clock: clk100K/clk_div rising
@@ -1159,10 +1155,30 @@ Offset:              4.645ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             3   1.222   0.650  pb_in_rst_IBUF (pb_in_rst_IBUF)
-     INV:I->O            707   0.206   2.136  clk100K/rst_n_inv1_INV_0 (LCD_ctrl/rst_n_inv)
+     INV:I->O            728   0.206   2.141  clk100K/rst_n_inv1_INV_0 (LCD_ctrl/rst_n_inv)
      FDP:PRE                   0.430          LCD_ctrl/LCD_en
     ----------------------------------------
-    Total                      4.645ns (1.858ns logic, 2.787ns route)
+    Total                      4.650ns (1.858ns logic, 2.792ns route)
+                                       (40.0% logic, 60.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_gen/clk_1'
+  Total number of paths / destination ports: 204 / 204
+-------------------------------------------------------------------------
+Offset:              4.650ns (Levels of Logic = 2)
+  Source:            pb_in_rst (PAD)
+  Destination:       game_ctrl/state_FSM_FFd1 (FF)
+  Destination Clock: clk_gen/clk_1 rising
+
+  Data Path: pb_in_rst to game_ctrl/state_FSM_FFd1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.650  pb_in_rst_IBUF (pb_in_rst_IBUF)
+     INV:I->O            728   0.206   2.141  clk100K/rst_n_inv1_INV_0 (LCD_ctrl/rst_n_inv)
+     FDC:CLR                   0.430          game_ctrl/block_gen_type_0
+    ----------------------------------------
+    Total                      4.650ns (1.858ns logic, 2.792ns route)
                                        (40.0% logic, 60.0% route)
 
 =========================================================================
@@ -1209,32 +1225,40 @@ Cross Clock Domains Report:
 --------------------------
 
 Clock to Setup on destination clock clk
-------------------------------------------+---------+---------+---------+---------+
-                                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-------------------------------------------+---------+---------+---------+---------+
-clk                                       |    5.955|         |         |         |
-clk100K/clk_div                           |    2.780|         |         |         |
-game_ctrl/state[2]_GND_35_o_Mux_261_o     |         |    3.575|         |         |
-game_ctrl/state[2]_block_type[2]_Mux_151_o|         |    7.490|         |         |
-------------------------------------------+---------+---------+---------+---------+
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.394|         |         |         |
+---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk100K/clk_div
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.952|         |         |         |
-clk100K/clk_div|    5.568|         |         |         |
+clk100K/clk_div|    5.667|         |         |         |
+clk_gen/clk_1  |    3.838|         |         |         |
 ---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk_gen/clk_1
+------------------------------------------+---------+---------+---------+---------+
+                                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------------+---------+---------+---------+---------+
+clk100K/clk_div                           |    2.780|         |         |         |
+clk_gen/clk_1                             |    6.042|         |         |         |
+game_ctrl/state[2]_GND_35_o_Mux_261_o     |         |    3.595|         |         |
+game_ctrl/state[2]_block_type[2]_Mux_151_o|         |    7.616|         |         |
+------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock game_ctrl/state[2]_GND_35_o_Mux_261_o
 ------------------------------------------+---------+---------+---------+---------+
                                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------+---------+---------+---------+---------+
-clk                                       |         |         |    9.008|         |
-game_ctrl/state[2]_block_type[2]_Mux_151_o|         |         |    8.568|         |
+clk_gen/clk_1                             |         |         |    9.406|         |
+game_ctrl/state[2]_block_type[2]_Mux_151_o|         |         |    8.548|         |
 ------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock game_ctrl/state[2]_GND_36_o_Mux_263_o
@@ -1242,7 +1266,7 @@ Clock to Setup on destination clock game_ctrl/state[2]_GND_36_o_Mux_263_o
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |         |         |    1.637|         |
+clk_gen/clk_1  |         |         |    1.637|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock game_ctrl/state[2]_block_type[2]_Mux_151_o
@@ -1250,21 +1274,21 @@ Clock to Setup on destination clock game_ctrl/state[2]_block_type[2]_Mux_151_o
                                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------------+---------+---------+---------+---------+
-clk                                  |         |         |    8.186|         |
+clk_gen/clk_1                        |         |         |    8.186|         |
 game_ctrl/state[2]_GND_36_o_Mux_263_o|         |         |    8.051|         |
 -------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 50.00 secs
-Total CPU time to Xst completion: 50.24 secs
+Total REAL time to Xst completion: 52.00 secs
+Total CPU time to Xst completion: 51.95 secs
  
 --> 
 
-Total memory usage is 676296 kilobytes
+Total memory usage is 678264 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   89 (   0 filtered)
+Number of warnings :   62 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 
