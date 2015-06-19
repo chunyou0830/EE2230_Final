@@ -1,0 +1,82 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/XilinxISE/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/XilinxISE/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source D:/Programming/EE2230_Final/LCD_Convert_Test/pa.fromHdl.tcl
+# create_project -name LCD_Convert_Test -dir "D:/Programming/EE2230_Final/LCD_Convert_Test/planAhead_run_1" -part xc6slx16csg324-3
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "LCD_Convert_Test.ucf" [current_fileset -constrset]
+Adding file 'D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Convert_Test.ucf' to fileset 'constrs_1'
+# add_files [list {ipcore_dir/RAM.ngc}]
+# set hdlfile [add_files [list {ipcore_dir/RAM.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {RAM_ctrl.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {LCD_control.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ct_clkdivider.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {clock_generator.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {LCD_Control_Test.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top LCD_Control_Test $srcset
+# add_files [list {LCD_Convert_Test.ucf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/RAM.ncf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx16csg324-3
+Using Verific elaboration
+Parsing VHDL file "C:/XilinxISE/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/ipcore_dir/RAM.v" into library work
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/RAM_ctrl.v" into library work
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_control.v" into library work
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/ct_clkdivider.v" into library work
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/clock_generator.v" into library work
+Parsing verilog file "global.v" included at line 9. [D:/Programming/EE2230_Final/LCD_Convert_Test/clock_generator.v:9]
+Analyzing Verilog file "D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Control_Test.v" into library work
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design RAM.ngc ...
+WARNING:NetListWriters:298 - No output is written to RAM.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file RAM.edif ...
+ngc2edif: Total memory usage is 80384 kilobytes
+
+Reading core file 'D:/Programming/EE2230_Final/LCD_Convert_Test/ipcore_dir/RAM.ngc' for (cell view 'RAM', library 'work', file 'RAM.v')
+Parsing EDIF File [./.Xil/PlanAhead-14340-CY-PC/ngc2edif/RAM.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-14340-CY-PC/ngc2edif/RAM.edif]
+Loading clock regions from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockRegion.xml
+Loading clock buffers from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx16/ClockBuffers.xml
+Loading package pin functions from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx16/csg324/Package.xml
+Loading io standards from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/XilinxISE/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Convert_Test.ucf]
+Finished Parsing UCF File [D:/Programming/EE2230_Final/LCD_Convert_Test/LCD_Convert_Test.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 1a73db54
+open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 663.035 ; gain = 192.098
+update_compile_order -fileset sim_1
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Fri Jun 19 12:28:29 2015...
+INFO: [Common 17-83] Releasing license: PlanAhead

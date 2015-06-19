@@ -31,6 +31,8 @@ module LCD_Control_Test(
 	wire [9:0] data_out;
 	wire [63:0] conv_data;
 	wire clk_1, clk_100;
+	wire out_valid;
+	wire [7:0] ram_data_out;
 clock_generator clk_gen(
 	.clk(clk),
 	.rst(rst),
@@ -47,23 +49,17 @@ clock_generator clk_gen(
   .clk_div(clk_div)
 );
 
-FakeDispRAMData data_gen(
-	.rst(rst),
-	.clk_40M(clk),
-	.clk_1(clk_1),
-	.addr(addr),
-	.data_out(data_out)
+
+RAM_ctrl ram_c (
+  .game_table(100'b0000000001_0000000010_0000000100_0000001000_0000010000_0000100000_0001000000_0010000000_0100000000_1000000000), // CY_ADD
+  .clk(clk_div),
+  .rst_n(pb_in_rst),
+  .change(1'b1),
+  .en(en),
+  .data_out(ram_data_out),
+  .data_valid(out_valid)
 );
 
-RAM_control RAM_ctrl (
-    .clk(clk_div),
-    .rst_n(pb_in_rst),
-    .change(1'b1),
-    .en(en),
-    .input_data(conv_data),
-    .data_out(ram_data_out),
-    .data_valid(out_valid)
-);
 
 LCD_control LCD_ctrl (
     .clk(clk_div),
@@ -77,16 +73,5 @@ LCD_control LCD_ctrl (
     .LCD_cs(LCD_cs),
     .LCD_data(LCD_data),
     .en_tran(en)
-);
-
-RAM_signal_converter(
-	.clk(clk_1),
-	.rst(rst),
-	.RAM_10_bit(data_out),
-	.RAM_64_bit(conv_data),
-	.data(),//X
-	.get_next_data(),//X
-	.a(),//X
-	.RAM_64_bit_next()//X
 );
 endmodule

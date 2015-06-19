@@ -56,6 +56,7 @@ module RAM_ctrl (
 			4'd8: data = game_table[89:80];
 			4'd9: data = game_table[99:90];
 			default: data = 10'd0;
+		endcase
 	end
 
 //-------------------
@@ -64,64 +65,55 @@ module RAM_ctrl (
   always @*
    begin
     if(data[9]==0)
-        in_temp0 = 6'b0000_00;
+        in_temp9 = 6'b0000_00;
     else 
-        in_temp0 = 6'b1111_11;
+        in_temp9 = 6'b1111_11;
 
     if(data[8]==0)
-        in_temp1 = 6'b0000_00;
-    else 
-        in_temp1 = 6'b1111_11;
-
-    if(data[7]==0)
-        in_temp2 = 6'b0000_00;
-    else 
-        in_temp2 = 6'b1111_11;
-
-    if(data[6]==0)
-        in_temp3 = 6'b0000_00;
-    else 
-        in_temp3 = 6'b1111_11;
-
-    if(data[5]==0)
-        in_temp4 = 6'b0000_00;
-    else 
-        in_temp4 = 6'b1111_11;
-
-    if(data[4]==0)
-        in_temp5 = 6'b0000_00;
-    else 
-        in_temp5 = 6'b1111_11;
-
-    if(data[3]==0)
-        in_temp6 = 6'b0000_00;
-    else 
-        in_temp6 = 6'b1111_11;
-
-    if(data[2]==0)
-        in_temp7 = 6'b0000_00;
-    else 
-        in_temp7 = 6'b1111_11;
-
-    if(data[1]==0)
         in_temp8 = 6'b0000_00;
     else 
         in_temp8 = 6'b1111_11;
 
-    if(data[0]==0)
-        in_temp9 = 6'b0000_00;
+    if(data[7]==0)
+        in_temp7 = 6'b0000_00;
     else 
-        in_temp9 = 6'b1111_11;
-  end
+        in_temp7 = 6'b1111_11;
 
-    /*if(cnt == 0 && addr_in == 2)
+    if(data[6]==0)
+        in_temp6 = 6'b0000_00;
+    else 
+        in_temp6 = 6'b1111_11;
+
+    if(data[5]==0)
+        in_temp5 = 6'b0000_00;
+    else 
+        in_temp5 = 6'b1111_11;
+
+    if(data[4]==0)
+        in_temp4 = 6'b0000_00;
+    else 
+        in_temp4 = 6'b1111_11;
+
+    if(data[3]==0)
+        in_temp3 = 6'b0000_00;
+    else 
+        in_temp3 = 6'b1111_11;
+
+    if(data[2]==0)
+        in_temp2 = 6'b0000_00;
+    else 
+        in_temp2 = 6'b1111_11;
+
+    if(data[1]==0)
+        in_temp1 = 6'b0000_00;
+    else 
+        in_temp1 = 6'b1111_11;
+
+    if(data[0]==0)
+        in_temp0 = 6'b0000_00;
+    else 
         in_temp0 = 6'b1111_11;
-    else
-       in_temp1 = 16'b0000_0000_0000_0000;
-   end*/
-  
-
-
+  end
   
   RAM R1(
     .clka(clk),
@@ -199,7 +191,11 @@ module RAM_ctrl (
     case(state)
       WRITE: begin
         addr_next = addr + 1'b1;
-        data_in = {2'b11,in_temp0, in_temp1, in_temp2, in_temp3,in_temp4,in_temp5,in_temp6,in_temp7,in_temp8,in_temp9,2'b11};
+        if(addr == 6'd0 || addr == 6'd1 || addr == 6'd62 || addr == 6'd63)
+          data_in = 64'b11111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111;
+        else
+          data_in = {2'b11,in_temp0, in_temp1, in_temp2, in_temp3,in_temp4,in_temp5,in_temp6,in_temp7,in_temp8,in_temp9,2'b11};
+
         if (addr == 6'd7 || addr == 6'd13 || addr == 6'd19 || addr == 6'd25 || addr == 6'd31 || addr == 6'd37 || addr == 6'd43 || addr == 6'd49 || addr == 6'd55 || addr == 6'd61)
         begin
           if(cnt == 4'd9)

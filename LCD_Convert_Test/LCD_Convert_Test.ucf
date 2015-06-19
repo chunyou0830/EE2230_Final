@@ -1,9 +1,9 @@
 ## pin mapping
 NET "clk"           LOC = "R10";
 NET "pb_in_rst"         LOC = "N3";
-NET "dip[0]" LOC = "T1";
-NET "dip[1]" LOC = "P2";
-NET "dip[2]" LOC = "P1";
+#NET "dip[0]" LOC = "T1";
+#NET "dip[1]" LOC = "P2";
+#NET "dip[2]" LOC = "P1";
 #NET "LED"           LOC = "P4";
 
 ## LCD control signals
