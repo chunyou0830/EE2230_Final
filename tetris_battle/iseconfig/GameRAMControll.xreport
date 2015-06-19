@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-06-19T11:03:39</DateModified>
+  <DateModified>2015-06-19T13:47:29</DateModified>
   <ModuleName>GameRAMControll</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>D:/Programming/EE2230_Final/tetris_battle/iseconfig/GameRAMControll.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/Programming/EE2230_Final/tetris_battle</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>D:/Programming/EE2230_Final/tetris_battle\</ImplementationReportsDirectory>
   <DateInitialized>2015-06-19T11:03:39</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
