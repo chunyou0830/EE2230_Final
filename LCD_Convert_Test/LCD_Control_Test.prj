@@ -1,8 +1,0 @@
-verilog work "ipcore_dir/RAM.v"
-verilog work "RAM_ctrl.v"
-verilog work "LCD_control.v"
-verilog work "keypad_scan.v"
-verilog work "GameRAMControll.v"
-verilog work "ct_clkdivider.v"
-verilog work "clock_generator.v"
-verilog work "LCD_Control_Test.v"

@@ -70,7 +70,7 @@ keypad_scan pad_scn(
 );
 
 GameRAMControll game_ctrl(
-	.clk_40M(clk_1),
+	.clk_40M(clk),
 	.clk_1(clk_1),
 	.rst(rst),
 	.pad_key(pad_key),

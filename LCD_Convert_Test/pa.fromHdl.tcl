@@ -24,6 +24,9 @@ set_property library work $hdlfile
 set hdlfile [add_files [list {ct_clkdivider.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
+set hdlfile [add_files [list {clock_generator.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
 set hdlfile [add_files [list {LCD_Control_Test.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
