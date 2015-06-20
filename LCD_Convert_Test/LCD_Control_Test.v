@@ -29,7 +29,7 @@ module LCD_Control_Test(
 	output LCD_di;
 	output [7:0] LCD_data;
 	output LCD_en;
-	output led;
+	output [3:0] led;
 
 	output [3:0] row_scn;
 	input [3:0] col_in;
@@ -78,20 +78,24 @@ reg timer_clk;
 
 always @*
 	if(pad_pressed)
-		timer_clk = clk_100;
+		timer_clk = clk_6;
 	else 
 		timer_clk = clk_1;
-assign led = timer_clk;
+assign led[0] = timer_clk;
+wire [2:0] state_output;
 GameRAMControll game_ctrl(
-	.clk_40M(clk_1),
-	.clk_1(timer_clk),
+	.clk_40M(clk),
+	.clk_6(clk_6),
+	.clk_1(clk_1),
 	.rst(rst),
 	.pad_key(pad_key),
 	.pad_pressed(pad_pressed),
 	.game_addLine(1'b0),
 	.game_sendLine(),
-	.game_table_output(game_table)
+	.game_table_output(game_table),
+	.state_output(state_output)
 );
+assign led[3:1] = state_output;
 
 RAM_ctrl ram_c (
   .game_table(game_table), // CY_ADD

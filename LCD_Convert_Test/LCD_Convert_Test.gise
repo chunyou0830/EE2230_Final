@@ -105,7 +105,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434733072" xil_pn:in_ck="-4612797931845758545" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="6761877084272634757" xil_pn:start_ts="1434733017">
+    <transform xil_pn:end_ts="1434773569" xil_pn:in_ck="-4612797931845758545" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="6761877084272634757" xil_pn:start_ts="1434773518">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -123,11 +123,11 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1434733072" xil_pn:in_ck="8632455628934529470" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7840016144236098028" xil_pn:start_ts="1434733072">
+    <transform xil_pn:end_ts="1434772816" xil_pn:in_ck="8632455628934529470" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7840016144236098028" xil_pn:start_ts="1434772816">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434733078" xil_pn:in_ck="692847169139943243" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8922183061898191767" xil_pn:start_ts="1434733072">
+    <transform xil_pn:end_ts="1434773574" xil_pn:in_ck="692847169139943243" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8922183061898191767" xil_pn:start_ts="1434773569">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="LCD_Control_Test.bld"/>
@@ -136,9 +136,11 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1434733096" xil_pn:in_ck="-6424848456697700649" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1463976855095865663" xil_pn:start_ts="1434733078">
+    <transform xil_pn:end_ts="1434773592" xil_pn:in_ck="-6424848456697700649" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1463976855095865663" xil_pn:start_ts="1434773574">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="LCD_Control_Test.pcf"/>
       <outfile xil_pn:name="LCD_Control_Test_map.map"/>
       <outfile xil_pn:name="LCD_Control_Test_map.mrp"/>
@@ -149,7 +151,7 @@
       <outfile xil_pn:name="LCD_Control_Test_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1434733117" xil_pn:in_ck="5268263076295264496" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1434733096">
+    <transform xil_pn:end_ts="1434773612" xil_pn:in_ck="5268263076295264496" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1434773592">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="LCD_Control_Test.ncd"/>
@@ -163,7 +165,7 @@
       <outfile xil_pn:name="LCD_Control_Test_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1434733134" xil_pn:in_ck="5948757954875991573" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1434733117">
+    <transform xil_pn:end_ts="1434773629" xil_pn:in_ck="5948757954875991573" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1434773612">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -176,11 +178,11 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1434733134" xil_pn:in_ck="8081969308202148991" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="2682241697568822907" xil_pn:start_ts="1434733134">
+    <transform xil_pn:end_ts="1434773629" xil_pn:in_ck="8081969308202148991" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="2682241697568822907" xil_pn:start_ts="1434773629">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434733117" xil_pn:in_ck="2836200022014424147" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1434733112">
+    <transform xil_pn:end_ts="1434773612" xil_pn:in_ck="2836200022014424147" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1434773607">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="LCD_Control_Test.twr"/>

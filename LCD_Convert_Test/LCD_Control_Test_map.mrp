@@ -11,40 +11,40 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Jun 20 00:57:58 2015
+Mapped Date    : Sat Jun 20 12:12:55 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    3
+Number of warnings:    2
 Slice Logic Utilization:
-  Number of Slice Registers:                   885 out of  18,224    4%
-    Number used as Flip Flops:                 853
+  Number of Slice Registers:                   843 out of  18,224    4%
+    Number used as Flip Flops:                 811
     Number used as Latches:                     32
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,230 out of   9,112   24%
-    Number used as logic:                    2,220 out of   9,112   24%
-      Number using O6 output only:           1,964
-      Number using O5 output only:              40
-      Number using O5 and O6:                  216
+  Number of Slice LUTs:                      2,289 out of   9,112   25%
+    Number used as logic:                    2,284 out of   9,112   25%
+      Number using O6 output only:           2,063
+      Number using O5 output only:              44
+      Number using O5 and O6:                  177
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
-    Number used exclusively as route-thrus:     10
-      Number with same-slice register load:      8
+    Number used exclusively as route-thrus:      5
+      Number with same-slice register load:      3
       Number with same-slice carry load:         2
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   737 out of   2,278   32%
-  Number of MUXCYs used:                        56 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:        2,258
-    Number with an unused Flip Flop:         1,401 out of   2,258   62%
-    Number with an unused LUT:                  28 out of   2,258    1%
-    Number of fully used LUT-FF pairs:         829 out of   2,258   36%
-    Number of unique control sets:              22
+  Number of occupied Slices:                   739 out of   2,278   32%
+  Number of MUXCYs used:                        60 out of   4,556    1%
+  Number of LUT Flip Flop pairs used:        2,306
+    Number with an unused Flip Flop:         1,489 out of   2,306   64%
+    Number with an unused LUT:                  17 out of   2,306    1%
+    Number of fully used LUT-FF pairs:         800 out of   2,306   34%
+    Number of unique control sets:              21
     Number of slice register sites lost
-      to control set restrictions:             107 out of  18,224    1%
+      to control set restrictions:              93 out of  18,224    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -53,8 +53,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        25 out of     232   10%
-    Number of LOCed IOBs:                       25 out of      25  100%
+  Number of bonded IOBs:                        28 out of     232   12%
+    Number of LOCed IOBs:                       28 out of      28  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         1 out of      32    3%
@@ -81,11 +81,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                5.25
+Average Fanout of Non-Clock Nets:                5.19
 
-Peak Memory Usage:  422 MB
-Total REAL time to MAP completion:  16 secs 
-Total CPU time to MAP completion:   16 secs 
+Peak Memory Usage:  420 MB
+Total REAL time to MAP completion:  15 secs 
+Total CPU time to MAP completion:   15 secs 
 
 Table of Contents
 -----------------
@@ -108,15 +108,12 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:PhysDesignRules:372 - Gated clock. Clock net led_OBUF is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   game_ctrl/Mmux_game_table[99]_PWR_5_o_MUX_1446_o13 is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   game_ctrl/state[2]_GND_36_o_Mux_264_o is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data
-   into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   game_ctrl/state[2]_GND_35_o_Mux_262_o is sourced by a combinatorial pin. This
+   game_ctrl/state[2]_PWR_64_o_Mux_262_o is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 
@@ -177,7 +174,10 @@ Section 6 - IOB Properties
 | col_in<1>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | col_in<2>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | col_in<3>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| led                                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| led<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| led<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| led<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| led<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | pb_in_rst                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | row_scn<0>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | row_scn<1>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

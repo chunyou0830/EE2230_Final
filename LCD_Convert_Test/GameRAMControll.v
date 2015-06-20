@@ -12,7 +12,7 @@
 // 		Revision 0.01 - File Created
 //////////////////////////////////////////////////////////////////////////////////
 `include "global.v"
-`define STAT_CLEAR			3'b000
+`define STAT_PAUSE			3'b000
 `define STAT_CREATE			3'b001
 `define STAT_STOP			3'b010
 `define STAT_MOVE_WAIT		3'b011
@@ -36,19 +36,22 @@
 
 module GameRAMControll(
 	clk_40M,
+	clk_6,
 	clk_1,
 	rst,
 	pad_key,
 	pad_pressed,
 	game_addLine,
 	game_sendLine,
-	game_table_output
+	game_table_output,
+	state_output
 );
 
 	// I/O PORTS DECLARATION ----------
 
 	// System Basic
 	input clk_40M;
+	input clk_6;
 	input clk_1;
 	input rst;
 
@@ -61,7 +64,8 @@ module GameRAMControll(
 	output game_sendLine;
 	reg [2:0] state;
 	reg [2:0] state_next;
-
+	output [2:0] state_output;
+	assign state_output = state;
 	// Block Controll
 	reg move_available;
 	wire move_basic_check;
@@ -93,10 +97,10 @@ module GameRAMControll(
 	always @*
 	begin
 		case(state)
-			`STAT_CLEAR:
+			/*`STAT_CLEAR:
 			begin
 				state_next = `STAT_CREATE;
-			end
+			end*/
 			`STAT_CREATE:
 			begin
 				move_available = 1'b0;
@@ -117,7 +121,7 @@ module GameRAMControll(
 			begin
 				//move_available = 1'b0;
 
-				if(~pad_pressed) /* Force to move down UNFINISHED */
+				if(/*clk_1*/0) /* Force to move down UNFINISHED */
 				begin
 					state_next = `STAT_MOVE_DOWN;
 				end
@@ -152,7 +156,7 @@ module GameRAMControll(
 				move_available = (move_basic_check && (block_A < 7'd90) && (block_B < 7'd90) && (block_C < 7'd90) && (block_D < 7'd90));
 				if(move_available)
 				begin
-					state_next = `STAT_MOVE_WAIT;
+					state_next = `STAT_PAUSE;
 				end
 			//	else if(/* Cannot move and reaches the top line*/)
 				/*begin
@@ -173,7 +177,7 @@ module GameRAMControll(
 				/* Check Movable */
 				move_available = (move_basic_check && (block_A % 7'd10 != 7'd0 ) && (block_B % 7'd10 != 7'd0 ) && (block_C % 7'd10 != 7'd0 ) && (block_D % 7'd10 != 7'd0 ));
 
-				state_next = `STAT_MOVE_WAIT;
+				state_next = `STAT_PAUSE;
 			end
 			`STAT_MOVE_RIGHT:
 			begin
@@ -185,7 +189,7 @@ module GameRAMControll(
 				/* Check Movable */
 				move_available = (move_basic_check && ((block_A+7'd1) % 7'd10 != 7'd0 ) && ((block_B+7'd1) % 7'd10 != 7'd0 ) && ((block_C+7'd1) % 7'd10 != 7'd0 ) && ((block_D+7'd1) % 7'd10 != 7'd0 ));
 
-				state_next = `STAT_MOVE_WAIT;
+				state_next = `STAT_PAUSE;
 			end
 			`STAT_MOVE_ROTATE:
 			begin
@@ -227,6 +231,12 @@ module GameRAMControll(
 					{`BLOCK_O,`ROTATE_3}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A+7'd0 ,block_B+7'd0 ,block_C+7'd0 ,block_D+7'd0 };
 				endcase
 				/* Check Movable */
+				move_available = move_basic_check;
+
+				state_next = `STAT_PAUSE;
+			end
+			`STAT_PAUSE:
+			begin
 				state_next = `STAT_MOVE_WAIT;
 			end
 			default:
@@ -236,10 +246,11 @@ module GameRAMControll(
 			end
 		endcase
 	end
-	//wire clk_state_trig;
-	//assign clk_state_trig = clk_1 || pad_pressed;
+
 	// Sequential Logics
-	always @(posedge clk_1 or posedge rst)
+	wire clk_stat_trig;
+	assign clk_stat_trig = clk_6 || pad_pressed;
+	always @(posedge clk_6 or posedge rst)
 	begin
 		if (rst)
 		begin
@@ -254,7 +265,7 @@ module GameRAMControll(
 	// GAME TABLE CONTROLL ----------
 	assign game_table_output = game_table;
 
-	always @(posedge clk_40M or posedge rst)
+	always @(posedge clk_6 or posedge rst)
 	begin
 		if(rst)
 		begin
@@ -262,7 +273,7 @@ module GameRAMControll(
 		end
 		else if((state[2] == 1'b1 && move_available) || (state == `STAT_CREATE))
 		begin
-			if(((block_A >= 7'd90) || (block_B >= 7'd90) || (block_C >= 7'd90) || (block_D >= 7'd90)) || (state == `STAT_CREATE))
+			if(state == `STAT_CREATE)
 			begin
 				game_table[block_A] <= 1'b1;
 				game_table[block_B] <= 1'b1;

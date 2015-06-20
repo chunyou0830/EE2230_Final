@@ -37,7 +37,7 @@ Setup/Hold to clock clk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-pb_in_rst   |    8.147(R)|      SLOW  |   -3.339(R)|      FAST  |clk_BUFGP         |   0.000|
+pb_in_rst   |    6.407(R)|      SLOW  |   -2.937(R)|      FAST  |clk_BUFGP         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -45,7 +45,7 @@ Clock clk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-led         |         9.677(R)|      SLOW  |         5.025(R)|      FAST  |clk_BUFGP         |   0.000|
+led<0>      |         9.762(R)|      SLOW  |         4.984(R)|      FAST  |clk_BUFGP         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -53,18 +53,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.134|         |         |         |
+clk            |    3.846|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-pb_in_rst      |LCD_rst        |    8.610|
+pb_in_rst      |LCD_rst        |    8.767|
 ---------------+---------------+---------+
 
 
-Analysis completed Sat Jun 20 00:58:36 2015 
+Analysis completed Sat Jun 20 12:13:31 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:

@@ -1,10 +1,9 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Jun 20 00:58:14 2015
+// Written by: Map P.20131013 on Sat Jun 20 12:13:10 2015
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "R10" LEVEL 1;
-COMP "led" LOCATE = SITE "H5" LEVEL 1;
 COMP "col_in<0>" LOCATE = SITE "J3" LEVEL 1;
 COMP "col_in<1>" LOCATE = SITE "J1" LEVEL 1;
 COMP "col_in<2>" LOCATE = SITE "H2" LEVEL 1;
@@ -25,6 +24,10 @@ COMP "row_scn<3>" LOCATE = SITE "L3" LEVEL 1;
 COMP "LCD_di" LOCATE = SITE "C1" LEVEL 1;
 COMP "LCD_en" LOCATE = SITE "F5" LEVEL 1;
 COMP "LCD_rw" LOCATE = SITE "C2" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "H5" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "H6" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "F1" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "F2" LEVEL 1;
 COMP "LCD_cs<0>" LOCATE = SITE "F4" LEVEL 1;
 COMP "LCD_cs<1>" LOCATE = SITE "E1" LEVEL 1;
 COMP "LCD_rst" LOCATE = SITE "E3" LEVEL 1;
