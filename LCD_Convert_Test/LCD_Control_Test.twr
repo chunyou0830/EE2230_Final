@@ -2,8 +2,8 @@
 Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-C:\XilinxISE\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s
-3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o
 LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf
 
 Design file:              LCD_Control_Test.ncd
@@ -64,7 +64,7 @@ pb_in_rst      |LCD_rst        |    8.610|
 ---------------+---------------+---------+
 
 
-Analysis completed Sat Jun 20 00:58:36 2015 
+Analysis completed Sat Jun 20 10:59:12 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:

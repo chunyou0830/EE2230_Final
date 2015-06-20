@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Reading design: LCD_Control_Test.prj
 
@@ -108,37 +108,37 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" into library work
 Parsing module <RAM>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\RAM_ctrl.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\RAM_ctrl.v" into library work
 Parsing module <RAM_ctrl>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_control.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_control.v" into library work
 Parsing module <LCD_control>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\keypad_scan.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\keypad_scan.v" into library work
 Parsing verilog file "global.v" included at line 7.
 Parsing module <keypad_scan>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\GameRAMControll.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\GameRAMControll.v" into library work
 Parsing verilog file "global.v" included at line 14.
 Parsing module <GameRAMControll>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\ct_clkdivider.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\ct_clkdivider.v" into library work
 Parsing module <clock_divider>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\clock_generator.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\clock_generator.v" into library work
 Parsing verilog file "global.v" included at line 9.
 Parsing module <clock_generator>.
-Analyzing Verilog file "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" into library work
+Analyzing Verilog file "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" into library work
 Parsing module <LCD_Control_Test>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Port addr_in is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Port addr_in is not connected to this instance
 
 Elaborating module <LCD_Control_Test>.
 
 Elaborating module <clock_divider(half_cycle=200,counter_width=8)>.
 
 Elaborating module <clock_generator>.
-WARNING:HDLCompiler:1127 - "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 65: Assignment to clk_6 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 65: Assignment to clk_6 ignored, since the identifier is never used
 
 Elaborating module <keypad_scan>.
 
@@ -147,26 +147,26 @@ Elaborating module <GameRAMControll>.
 Elaborating module <RAM_ctrl>.
 
 Elaborating module <RAM>.
-WARNING:HDLCompiler:1499 - "D:\Programming\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" Line 39: Empty module <RAM> remains a black box.
+WARNING:HDLCompiler:1499 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" Line 39: Empty module <RAM> remains a black box.
 
 Elaborating module <LCD_control>.
-WARNING:HDLCompiler:552 - "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Input port addr_in[3] is not connected on this instance
+WARNING:HDLCompiler:552 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Input port addr_in[3] is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <LCD_Control_Test>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v".
 WARNING:Xst:2898 - Port 'addr_in', unconnected in block instance 'ram_c', is tied to GND.
-INFO:Xst:3210 - "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" line 60: Output port <clk_6> of the instance <clk_gen> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" line 85: Output port <game_sendLine> of the instance <game_ctrl> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" line 60: Output port <clk_6> of the instance <clk_gen> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" line 85: Output port <game_sendLine> of the instance <game_ctrl> is unconnected or connected to loadless signal.
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <LCD_Control_Test> synthesized.
 
 Synthesizing Unit <clock_divider>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\ct_clkdivider.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\ct_clkdivider.v".
         counter_width = 8
         half_cycle = 200
     Found 8-bit register for signal <count>.
@@ -179,7 +179,7 @@ Synthesizing Unit <clock_divider>.
 Unit <clock_divider> synthesized.
 
 Synthesizing Unit <clock_generator>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\clock_generator.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\clock_generator.v".
     Found 22-bit register for signal <count_3333333>.
     Found 18-bit register for signal <count_200K>.
     Found 25-bit register for signal <count_20M>.
@@ -196,7 +196,7 @@ Synthesizing Unit <clock_generator>.
 Unit <clock_generator> synthesized.
 
 Synthesizing Unit <keypad_scan>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\keypad_scan.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\keypad_scan.v".
     Found 4-bit register for signal <pause_delay>.
     Found 4-bit register for signal <key>.
     Found 5-bit register for signal <press_shift>.
@@ -217,7 +217,7 @@ Synthesizing Unit <keypad_scan>.
 Unit <keypad_scan> synthesized.
 
 Synthesizing Unit <GameRAMControll>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\GameRAMControll.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\GameRAMControll.v".
 WARNING:Xst:647 - Input <game_addLine> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:653 - Signal <game_sendLine> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 3-bit register for signal <state>.
@@ -419,7 +419,7 @@ Synthesizing Unit <mod_7u_4u>.
 Unit <mod_7u_4u> synthesized.
 
 Synthesizing Unit <RAM_ctrl>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\RAM_ctrl.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\RAM_ctrl.v".
         IDLE = 2'b00
         WRITE = 2'b01
         GETDATA = 2'b10
@@ -479,7 +479,7 @@ WARNING:Xst:647 - Input <addr_in> is never used. This port will be preserved and
 Unit <RAM_ctrl> synthesized.
 
 Synthesizing Unit <LCD_control>.
-    Related source file is "D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_control.v".
+    Related source file is "C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_control.v".
         SETDSL = 3'b000
         SetY = 3'b001
         SetX = 3'b010
@@ -1370,12 +1370,12 @@ led_OBUF                                  |    2.915|         |         |       
 =========================================================================
 
 
-Total REAL time to Xst completion: 53.00 secs
-Total CPU time to Xst completion: 53.15 secs
+Total REAL time to Xst completion: 112.00 secs
+Total CPU time to Xst completion: 111.36 secs
  
 --> 
 
-Total memory usage is 678304 kilobytes
+Total memory usage is 660616 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   66 (   0 filtered)

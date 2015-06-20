@@ -5,25 +5,25 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Port <arg fmt="%s" index="1">addr_in</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Port <arg fmt="%s" index="1">addr_in</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 65: Assignment to <arg fmt="%s" index="1">clk_6</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 65: Assignment to <arg fmt="%s" index="1">clk_6</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"D:\Programming\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">RAM</arg>&gt; remains a black box.
+<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\ipcore_dir\RAM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">RAM</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="552" delta="old" >"D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Input port <arg fmt="%s" index="1">addr_in[3]</arg> is not connected on this instance
+<msg type="warning" file="HDLCompiler" num="552" delta="old" >"C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v" Line 96: Input port <arg fmt="%s" index="1">addr_in[3]</arg> is not connected on this instance
 </msg>
 
 <msg type="warning" file="Xst" num="2898" delta="old" >Port &apos;<arg fmt="%s" index="1">addr_in</arg>&apos;, unconnected in block instance &apos;<arg fmt="%s" index="2">ram_c</arg>&apos;, is tied to GND.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v</arg>&quot; line <arg fmt="%s" index="2">60</arg>: Output port &lt;<arg fmt="%s" index="3">clk_6</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk_gen</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v</arg>&quot; line <arg fmt="%s" index="2">60</arg>: Output port &lt;<arg fmt="%s" index="3">clk_6</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk_gen</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:\Programming\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">game_sendLine</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">game_ctrl</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\user\Desktop\logicdesign\EE2230_Final\LCD_Convert_Test\LCD_Control_Test.v</arg>&quot; line <arg fmt="%s" index="2">85</arg>: Output port &lt;<arg fmt="%s" index="3">game_sendLine</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">game_ctrl</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">game_addLine</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
