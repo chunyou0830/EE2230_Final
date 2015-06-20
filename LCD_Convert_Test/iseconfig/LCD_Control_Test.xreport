@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-06-19T20:54:37</DateModified>
+  <DateModified>2015-06-19T21:27:34</DateModified>
   <ModuleName>LCD_Control_Test</ModuleName>
   <SummaryTimeStamp>2015-06-19T20:35:21</SummaryTimeStamp>
-  <SavedFilePath>D:/Programming/EE2230_Final/LCD_Convert_Test/iseconfig/LCD_Control_Test.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/Programming/EE2230_Final/LCD_Convert_Test\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/user/Desktop/logicdesign/EE2230_Final/LCD_Convert_Test/iseconfig/LCD_Control_Test.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/user/Desktop/logicdesign/EE2230_Final/LCD_Convert_Test\</ImplementationReportsDirectory>
   <DateInitialized>2015-06-18T19:59:16</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
