@@ -30,3 +30,5 @@ NET "row_scn[3]" LOC = L3;
 NET "row_scn[2]" LOC = L4;
 NET "row_scn[1]" LOC = K1;
 NET "row_scn[0]" LOC = K2;
+
+NET "led" LOC = H5;

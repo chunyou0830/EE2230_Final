@@ -8,6 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<<<<<<< HEAD
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/user/Desktop/logicdesign/EE2230_Final/LCD_Convert_Test/GameRAMControll.v&quot; into library work</arg>
 </msg>
 
@@ -41,5 +42,7 @@
 </arg>
 </msg>
 
+=======
+>>>>>>> origin/master
 </messages>
 

@@ -13,7 +13,8 @@ module LCD_Control_Test(
 	LCD_data,
 	LCD_en,
 	col_in,
-	row_scn
+	row_scn,
+	led
 );
 
 
@@ -28,6 +29,7 @@ module LCD_Control_Test(
 	output LCD_di;
 	output [7:0] LCD_data;
 	output LCD_en;
+	output led;
 
 	output [3:0] row_scn;
 	input [3:0] col_in;
@@ -41,7 +43,9 @@ module LCD_Control_Test(
 	wire [7:0] ram_data_out;
 	
 	wire clk_1;
-
+	wire clk_100;
+	wire clk_6;
+	
 	wire [99:0] game_table;
 
   clock_divider #(
@@ -57,7 +61,8 @@ clock_generator clk_gen(
 	.clk(clk),
 	.rst(rst),
 	.clk_1(clk_1),
-	.clk_100()
+	.clk_100(clk_100),
+	.clk_6(clk_6)
 );
 
 keypad_scan pad_scn(
@@ -69,9 +74,17 @@ keypad_scan pad_scn(
 	.pressed(pad_pressed)
 );
 
+reg timer_clk;
+
+always @*
+	if(pad_pressed)
+		timer_clk = clk_100;
+	else 
+		timer_clk = clk_1;
+assign led = timer_clk;
 GameRAMControll game_ctrl(
-	.clk_40M(clk),
-	.clk_1(clk_1),
+	.clk_40M(clk_1),
+	.clk_1(timer_clk),
 	.rst(rst),
 	.pad_key(pad_key),
 	.pad_pressed(pad_pressed),

@@ -109,7 +109,7 @@ module GameRAMControll(
 					`BLOCK_S:{block_type,block_next_A,block_next_B,block_next_C,block_next_D,block_rotate} = {`BLOCK_S,7'd5 ,7'd4 ,7'd14,7'd13,`ROTATE_0};
 					`BLOCK_Z:{block_type,block_next_A,block_next_B,block_next_C,block_next_D,block_rotate} = {`BLOCK_Z,7'd4 ,7'd5 ,7'd15,7'd16,`ROTATE_0};
 					`BLOCK_T:{block_type,block_next_A,block_next_B,block_next_C,block_next_D,block_rotate} = {`BLOCK_T,7'd6 ,7'd5 ,7'd4 ,7'd15,`ROTATE_0};
-					default:{block_type,block_next_A,block_next_B,block_next_C,block_next_D,block_rotate}  = {3'b000  ,7'd0 ,7'd0 ,7'd0 ,7'd0 ,`ROTATE_0};
+					default:{block_type,block_next_A,block_next_B,block_next_C,block_next_D,block_rotate}  = {3'b000  ,7'd0 ,7'd0 ,7'd0 ,7'd0 ,`ROTATE_0}; // change to a spesific block type
 				endcase
 				state_next = `STAT_MOVE_WAIT;
 			end
@@ -117,11 +117,11 @@ module GameRAMControll(
 			begin
 				//move_available = 1'b0;
 
-				//if(1'b0) /* Force to move down UNFINISHED */
-				//begin
-				//	state_next = `STAT_MOVE_DOWN;
-				//end
-				if(pad_pressed && pad_key == `KEY_4) /* Press to move down */
+				if(~pad_pressed) /* Force to move down UNFINISHED */
+				begin
+					state_next = `STAT_MOVE_DOWN;
+				end
+				else if(pad_pressed && pad_key == `KEY_4) /* Press to move down */
 				begin
 					state_next = `STAT_MOVE_DOWN;
 				end
@@ -236,7 +236,8 @@ module GameRAMControll(
 			end
 		endcase
 	end
-
+	//wire clk_state_trig;
+	//assign clk_state_trig = clk_1 || pad_pressed;
 	// Sequential Logics
 	always @(posedge clk_1 or posedge rst)
 	begin
