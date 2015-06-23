@@ -1,0 +1,34 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Jun 21 12:03:33 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "R10" LEVEL 1;
+COMP "col_in<0>" LOCATE = SITE "J3" LEVEL 1;
+COMP "col_in<1>" LOCATE = SITE "J1" LEVEL 1;
+COMP "col_in<2>" LOCATE = SITE "H2" LEVEL 1;
+COMP "col_in<3>" LOCATE = SITE "H1" LEVEL 1;
+COMP "pb_in_rst" LOCATE = SITE "N3" LEVEL 1;
+COMP "LCD_data<0>" LOCATE = SITE "F6" LEVEL 1;
+COMP "LCD_data<1>" LOCATE = SITE "D3" LEVEL 1;
+COMP "LCD_data<2>" LOCATE = SITE "E4" LEVEL 1;
+COMP "LCD_data<3>" LOCATE = SITE "G6" LEVEL 1;
+COMP "LCD_data<4>" LOCATE = SITE "H7" LEVEL 1;
+COMP "LCD_data<5>" LOCATE = SITE "D1" LEVEL 1;
+COMP "LCD_data<6>" LOCATE = SITE "D2" LEVEL 1;
+COMP "LCD_data<7>" LOCATE = SITE "F3" LEVEL 1;
+COMP "row_scn<0>" LOCATE = SITE "K2" LEVEL 1;
+COMP "row_scn<1>" LOCATE = SITE "K1" LEVEL 1;
+COMP "row_scn<2>" LOCATE = SITE "L4" LEVEL 1;
+COMP "row_scn<3>" LOCATE = SITE "L3" LEVEL 1;
+COMP "LCD_di" LOCATE = SITE "C1" LEVEL 1;
+COMP "LCD_en" LOCATE = SITE "F5" LEVEL 1;
+COMP "LCD_rw" LOCATE = SITE "C2" LEVEL 1;
+COMP "state_output<0>" LOCATE = SITE "F2" LEVEL 1;
+COMP "state_output<1>" LOCATE = SITE "F1" LEVEL 1;
+COMP "state_output<2>" LOCATE = SITE "H6" LEVEL 1;
+COMP "LCD_cs<0>" LOCATE = SITE "F4" LEVEL 1;
+COMP "LCD_cs<1>" LOCATE = SITE "E1" LEVEL 1;
+COMP "LCD_rst" LOCATE = SITE "E3" LEVEL 1;
+SCHEMATIC END;
+
