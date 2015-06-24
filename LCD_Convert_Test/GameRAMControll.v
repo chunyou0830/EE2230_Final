@@ -557,6 +557,7 @@ module GameRAMControll(
  
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	always @(posedge clk_6 or posedge rst)
  	begin
  		if(rst)
@@ -566,6 +567,8 @@ module GameRAMControll(
  		else if((state[2] == 1'b1 && move_available) || (state == `STAT_CREATE))
  		begin
 =======
+=======
+>>>>>>> parent of 25f0f81... Pause State Added
 	always @(posedge clk_40M or posedge rst)
 	begin
 		if(rst)
