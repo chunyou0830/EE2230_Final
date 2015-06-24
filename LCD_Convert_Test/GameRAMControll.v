@@ -304,4 +304,8 @@ module GameRAMControll(
 					 		  (((block_next_C == block_A || block_next_C == block_B || block_next_C == block_C || block_next_C == block_D) && game_table[block_next_C]) || (~(block_next_C == block_A || block_next_C == block_B || block_next_C == block_C || block_next_C == block_D) && ~game_table[block_next_C])) &&
 					 		  (((block_next_D == block_A || block_next_D == block_B || block_next_D == block_C || block_next_D == block_D) && game_table[block_next_D]) || (~(block_next_D == block_A || block_next_D == block_B || block_next_D == block_C || block_next_D == block_D) && ~game_table[block_next_D]));
 
+<<<<<<< HEAD
 endmodule
+=======
+endmodule
+>>>>>>> parent of 0b3af7b... Game control unfinished
