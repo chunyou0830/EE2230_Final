@@ -35,6 +35,7 @@ module LCD_Control_Test(
 	output [3:0] row_scn;
 	input [3:0] col_in;
 	wire pad_pressed;
+	wire ctrl_pressed;
 	wire [3:0] pad_key;
 
 	wire [3:0] addr;
@@ -84,13 +85,20 @@ always @*
 		timer_clk = clk_1;
 assign led = timer_clk;*/
 
+one_pulse(
+	.clk(clk_100),  // clock input
+	.rst(rst), //active low reset
+	.in_trig(pad_pressed), // input trigger
+	.out_pulse(ctrl_pressed) // output one pulse 
+);
+
 GameRAMControll game_ctrl(
 	.clk_40M(clk_1),
-	.clk_6(clk_6),
+	.clk_6(clk_100),
 	.clk_1(clk_1),
 	.rst(rst),
 	.pad_key(pad_key),
-	.pad_pressed(pad_pressed),
+	.pad_pressed(ctrl_pressed),
 	.game_addLine(1'b0),
 	.game_sendLine(),
 	.game_table_output(game_table),

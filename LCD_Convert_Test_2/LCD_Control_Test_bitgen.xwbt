@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\user\Desktop\LCD_Convert_Test\LCD_Control_Test.ncd
-OUTFILE=C:\Users\user\Desktop\LCD_Convert_Test\LCD_Control_Test.bit
+INFILE=D:\Programming\EE2230_Final\LCD_Convert_Test_2\LCD_Control_Test.ncd
+OUTFILE=D:\Programming\EE2230_Final\LCD_Convert_Test_2\LCD_Control_Test.bit
 FAMILY=Spartan6
 PART=xc6slx16-3csg324
-WORKINGDIR=C:\Users\user\Desktop\LCD_Convert_Test
+WORKINGDIR=D:\Programming\EE2230_Final\LCD_Convert_Test_2
 LICENSE=WebPack
 USER_INFO=210913348_0_0_143
