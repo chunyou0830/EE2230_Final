@@ -377,19 +377,12 @@
  		end
  		else if((state[3] == 1'b1 && move_available) || (state == `STAT_CREATE))
  		begin
- 			if(~a)
- 			begin
- 				game_table[block_A] <= 1'b0;
- 				game_table[block_B] <= 1'b0;
- 				game_table[block_C] <= 1'b0;
- 				game_table[block_D] <= 1'b0;
- 			end
 			if(state == `STAT_CREATE)
  			begin
- 				game_table[block_A] <= 1'b1;
- 				game_table[block_B] <= 1'b1;
- 				game_table[block_C] <= 1'b1;
- 				game_table[block_D] <= 1'b1;
+ 				//game_table[block_A] <= 1'b1;
+ 				//game_table[block_B] <= 1'b1;
+ 				//game_table[block_C] <= 1'b1;
+ 				//game_table[block_D] <= 1'b1;
  			end
  			else
  			begin
