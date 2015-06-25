@@ -20,7 +20,14 @@ module LCD_Control_Test(
 	state_in,
 	state_out,
 	ftsd_ctl,
-	display
+	display,
+	add_vol,
+	sub_vol,
+	audio_appsel,
+	audio_sysclk,
+	audio_bck,
+	audio_ws,
+	audio_data
 );
 	input [5:0] score_in;
 	input [2:0] state_in;
@@ -112,14 +119,14 @@ one_pulse one_pulse(
 	.out_pulse(ctrl_pressed) // output one pulse 
 );
 
-/*push_button pb_proc_ctrl(
+push_button pb_proc_ctrl(
 	.clk(clk_100),
 	.rst(rst),
 	.pb_in(pb_in_ctrl),
 	.pb_out(),
 	.debounced(pb_ctrl)
-);*/
-assign pb_ctrl = ~pb_in_ctrl ;
+);
+//assign pb_ctrl = ~pb_in_ctrl ;
 GameRAMControll game_ctrl(
 	.clk_40M(clk_1),
 	.clk_6(clk_100),
@@ -212,4 +219,80 @@ LCD_control LCD_ctrl (
     .LCD_data(LCD_data),
     .en_tran(en)
 );
+
+
+// Music Related
+
+	 input add_vol,sub_vol;
+	 output audio_appsel;//playing mode selection
+	 output audio_sysclk;//control clock for DAC(from crystal)
+	 output audio_bck;//bit clock of audio data(5MHz)
+	 output audio_ws;//left/right parallel to serial control 
+	 output audio_data;//serial output audio data
+
+
+	 wire [15:0]audio_in_left,audio_in_right; 
+	 wire clk4Hz;
+	 wire [15:0]volumn;
+	 wire add_vol_1,sub_vol_1;
+	 wire [19:0]sound;
+
+debounce_circuit add_volumn(
+	.clk(clk_100),
+	.rst(rst),
+	.pb_in(add_vol),
+	.pb_debounced(add_vol_1)
+);
+
+debounce_circuit sub_volumn(
+	.clk(clk_100),
+	.rst(rst),
+	.pb_in(sub_vol),
+	.pb_debounced(sub_vol_1)
+);
+
+buzzer_control buzzer(
+		.clk(clk),//clk from crystal
+		.rst(rst),//active low reset
+		.note_div(sound),//div for note generation
+		.audio_left(audio_in_left),//left sound audio
+		.audio_right(audio_in_right),//right sound audio
+		.volumn(volumn)
+	 );
+
+
+	 
+	 speaker_control speak_con(
+		.clk(clk),
+		.rst(rst),
+		.audio_in_left(audio_in_left),
+		.audio_in_right(audio_in_right),
+		.audio_appsel(audio_appsel),
+		.audio_sysclk(audio_sysclk),
+		.audio_bck(audio_bck),
+		.audio_ws(audio_ws),
+		.audio_data(audio_data)
+	 );
+
+	 	volumn_counter volumn_counter(
+			.clk(clk_1),
+			.rst(rst),
+			.volumn(volumn),
+			.increase_volumn(add_vol_1),
+			.decrease_volumn(sub_vol_1)
+	);
+	
+	sound_counter sound_counter(
+			.clk(clk4Hz),
+			.rst(rst),
+			.sound(sound)
+	);
+	
+	 clk_generator clk_gener(
+		.clk(clk),
+	   .rst(rst),
+	   .clk_4Hz(clk4Hz),
+		.clk_100Hz(clk100Hz)
+	 );
+
 endmodule
