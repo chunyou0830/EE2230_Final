@@ -3,7 +3,7 @@
 // Engineer:		Jason Yang, Jimmy Lee
 // Create Date:		14:56 05/27/2015 
 // Design Name:		Game Status Controll FSM
-// Module Name:		GameStatus 
+// Module Name:		SystemState
 // Project Name:	Tetris Battle
 // Target Devices:	EVS 6 FPGA Demo Board
 // Description:
@@ -20,31 +20,24 @@
 `define STAT_GAME_ING		3'b110
 `define STAT_GAME_OVER		3'b111
 
-module GameStatus(
+module SystemState(
 	pb_ctl,
-	dip_players,
-	game_over,
-	game_clk,
-	global_clk,
+	stat_game,
 	stat_sync,
 	stat_out,
 	rst,
-	clk_1Hz,
-	KO,
-	game_time
+	clk_1,
+	clk_100
 );
 
 	// I/O PORTS DECLARATION ----------
 
 	// Input Ports
-	input game_time;
-	input clk_1Hz;
+	input clk_1;
+	input clk_100;
 	input rst;
 	input pb_ctl;
-	input dip_players;
-	input game_over;
-	input game_clk;
-	input global_clk;
+	input [3:0] stat_game;
 	input stat_sync;
 
 	// Output Ports
@@ -52,8 +45,7 @@ module GameStatus(
 
 	// Reg Ports
 	reg [2:0] stat_out_next;
-    reg count_enable;
-    reg [1:0] number,number_next;
+	reg [6:0] game_time;
 
 	// COMBINATIONAL LOGICS ----------
 	always @*
@@ -61,13 +53,9 @@ module GameStatus(
 		case(stat_out)
 			`STAT_NORMAL:
 			begin
-				if (pb_ctl && dip_players)
+				if (pb_ctl)
 				begin
 					stat_out_next = `STAT_MATCH_ING;
-				end
-				else if (pb_ctl && ~dip_players)
-				begin
-					stat_out_next = `STAT_GAME_INITIAL;
 				end
 				else
 				begin
@@ -99,23 +87,11 @@ module GameStatus(
 			end
 			`STAT_GAME_INITIAL:
 			begin
-				stat_out_next = `STAT_GAME_CNTDOWN;
-			end
-			`STAT_GAME_CNTDOWN:
-			begin
-				count_enable =1'b1;
-				if (number == 3) 
-				begin
-					stat_out_next = `STAT_GAME_ING;
-				end
-				else 
-				begin
-					stat_out_next =`STAT_GAME_CNTDOWN;
-				end
+				stat_out_next = `STAT_GAME_ING;
 			end
 			`STAT_GAME_ING:
 			begin
-				if(KO == 5 && game_time == 0)
+				if(game_time == 7'd0)
 				begin
 					stat_out_next = `STAT_GAME_OVER;
 				end
@@ -135,28 +111,31 @@ module GameStatus(
 					stat_out_next = `STAT_GAME_OVER;
 				end
 			end
+			default:
+			begin
+				stat_out_next = `STAT_NORMAL;
+			end
+		endcase
 	end
 
-	always @*
-	if(count_enable)
-    	number_next = number + 1'b1;
-    else 
-    	number_next = number;
-
-    always @(posedge clk_1Hz or posedge rst) 
+    always @(posedge clk_1 or posedge rst) 
     begin
     	if (rst) 
     	begin
-    		number = 2'b0;
+    		game_time <= 7'd80;
     	end
-    	else 
+    	else if(stat_out == `STAT_GAME_ING)
     	begin
-    		number = number_next;	
+    		game_time <= game_time - 1'd1;
+    	end
+    	else
+    	begin
+    		game_time <= 7'd80;	
     	end
     end
 
 
-	always@(posedge clk or posedge rst)
+	always@(posedge clk_100 or posedge rst)
 	if(rst)
 		stat_out<=3'b0;
 	else 

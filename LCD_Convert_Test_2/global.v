@@ -17,7 +17,7 @@
 `define DIV_BY_200K_BIT_WIDTH 18
 
 // Finite State Machine 
-`define STAT_PAUSE 1'b0;
+//`define STAT_PAUSE 1'b0;
 `define STAT_COUNT 1'b1;
 `define CNT_DIS 1'b0;
 `define CNT_EN 1'b1;

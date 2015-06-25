@@ -38,12 +38,14 @@
 	clk_6,
  	clk_1,
  	rst,
+ 	system_status,
  	pad_key,
  	pad_pressed,
  	game_addLine,
  	game_sendLine,
 	game_table_output,
-	state_output
+	state,
+	score
  );
  
  	// I/O PORTS DECLARATION ----------
@@ -53,6 +55,7 @@
 	input clk_6;
  	input clk_1;
  	input rst;
+ 	input [2:0] system_status;
  
  	// Keypad Operation
  	input [3:0] pad_key;
@@ -62,10 +65,9 @@
  	input game_addLine;
  	output game_sendLine;
  	reg [3:0] clear_counter;
- 	reg [3:0] state;
+ 	output reg [3:0] state;
  	reg [3:0] state_next;
-	output [2:0] state_output;
-	assign state_output = {clear_counter[2:0], a};
+
  	// Block Controll
  	reg move_available;
  	wire move_basic_check;
@@ -73,7 +75,8 @@
  	reg [1:0] block_rotate,block_rotate_next;
  	reg [6:0] block_A, block_B, block_C, block_D, block_next_A, block_next_B, block_next_C, block_next_D;
  	reg [99:0] game_table;
- 	reg a;
+ 	output reg [7:0] score;
+ 	reg [7:0] score_next;
  
  	// RAM Controll
  	output [99:0] game_table_output;
@@ -101,11 +104,14 @@
  			`STAT_STOP:
  			begin
  				/* State Change */
- 				if(1'b0/* Start Signal Comes in */)
+ 				if(system_status == 3'b110)
  				begin
  					state_next = `STAT_CREATE;
  				end
- 				a = 0;
+ 				else
+ 				begin
+ 					state_next = `STAT_STOP;
+ 				end
  			end
  			`STAT_CREATE:
  			begin
@@ -124,13 +130,22 @@
  				block_rotate_next = `ROTATE_0;
  				move_available = 1'b0;
  				/* State Change */
- 				state_next = `STAT_MOVE_WAIT;
- 				
+ 				if(game_table[block_next_A] || game_table[block_next_B] || game_table[block_next_C] || game_table[block_next_D])
+ 				begin
+ 					state_next = `STAT_STOP;
+ 				end
+ 				else if(system_status == 3'b111)
+ 				begin
+ 					state_next = `STAT_STOP;
+ 				end
+ 				else
+ 				begin
+ 					state_next = `STAT_MOVE_WAIT;
+ 				end
  			end
  			`STAT_MOVE_WAIT:
  			begin
  				/* Initiallize */
- 				a = 0;
  				move_available = 1'b0;
  				block_rotate_next = block_rotate;
  				/* State Change */
@@ -154,6 +169,10 @@
  				begin
  					state_next = `STAT_MOVE_ROTATE;
  				end
+ 				else if(system_status == 3'b111)
+ 				begin
+ 					state_next = `STAT_STOP;
+ 				end
  				else
  				begin
  					state_next =`STAT_MOVE_WAIT;
@@ -161,7 +180,6 @@
  			end
  			`STAT_MOVE_DOWN:
  			begin
- 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A + 7'd10;
  				block_next_B = block_B + 7'd10;
@@ -175,10 +193,6 @@
  				begin
 					state_next = `STAT_PAUSE;
  				end
- 				else if(1'b0/*~move_available && game_table[9:0]!=10'b0000_0000_00*/)
- 				begin
- 					state_next = `STAT_STOP;
- 				end
  				else
  				begin
  					state_next = `STAT_CLEAR;
@@ -186,7 +200,6 @@
  			end
  			`STAT_MOVE_LEFT:
  			begin
- 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A - 7'd1;
  				block_next_B = block_B - 7'd1;
@@ -200,7 +213,6 @@
  			end
  			`STAT_MOVE_RIGHT:
  			begin
- 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A + 7'd1;
  				block_next_B = block_B + 7'd1;
@@ -214,7 +226,6 @@
  			end
  			`STAT_MOVE_ROTATE:
  			begin
- 				a = 0;
  				/* Generate next block */
  				case({block_type,block_rotate})
  					{`BLOCK_J,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B-7'd20,block_C-7'd11,block_D-7'd2 };
@@ -262,7 +273,6 @@
 			end
 			`STAT_PAUSE:
 			begin
-				 a = 0;
  				state_next = `STAT_MOVE_WAIT;
  				block_rotate_next = block_rotate;
  			end
@@ -271,7 +281,6 @@
  				if(clear_counter == 4'd0 && game_table[9:0] != 10'b1111_1111_11&& game_table[19:10] != 10'b1111_1111_11&& game_table[29:20] != 10'b1111_1111_11&& game_table[39:30] != 10'b1111_1111_11&& game_table[49:40] != 10'b1111_1111_11&& game_table[59:50] != 10'b1111_1111_11&& game_table[69:60] != 10'b1111_1111_11&& game_table[79:70] != 10'b1111_1111_11&& game_table[89:80] != 10'b1111_1111_11&& game_table[99:90] != 10'b1111_1111_11)
  				begin
  					state_next = `STAT_CREATE;
- 					a=1;
  				end
  				else
  				begin
@@ -281,21 +290,17 @@
  			default:
  			begin
  				move_available = 1'b0;
- 				a = 0;
- 				state_next = `STAT_MOVE_WAIT;
+ 				state_next = `STAT_STOP;
  			end
  		endcase
  	end
 
  	// Sequential Logics
-
-	wire clk_stat_trig;
-	assign clk_stat_trig = clk_6 || pad_pressed;
 	always @(posedge clk_6 or posedge rst)
  	begin
  		if (rst)
  		begin
- 			state <= `STAT_CREATE;
+ 			state <= `STAT_STOP;
  			block_rotate <= 2'd0;
  		end
  		else
@@ -306,6 +311,7 @@
  	end
 
  	// GAME TABLE CONTROLL ----------
+
  	assign game_table_output = game_table;
 
 	always @(posedge clk_6 or posedge rst)
@@ -313,6 +319,7 @@
  		if(rst)
  		begin
  			game_table <= 100'd0;
+ 			score <= 8'd0;
  		end
  		else if(state == `STAT_STOP)
  		begin
@@ -324,52 +331,82 @@
  					4'd0:
  					begin
  						if(game_table[9:0] == 10'b1111_1111_11)
- 						game_table[9:0]  <= {10'd0};
+ 						begin
+ 							game_table[9:0]  <= {10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd1:
  					begin
  						if(game_table[19:10] == 10'b1111_1111_11)
- 						game_table[19:0] <= {game_table[9:0],10'd0};
+ 						begin
+ 							game_table[19:0] <= {game_table[9:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd2:
  					begin
  						if(game_table[29:20] == 10'b1111_1111_11)
- 						game_table[29:0] <= {game_table[19:0],10'd0};
+ 						begin
+ 							game_table[29:0] <= {game_table[19:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd3:
  					begin
  						if(game_table[39:30] == 10'b1111_1111_11)
- 						game_table[39:0] <= {game_table[29:0],10'd0};
+ 						begin
+ 							game_table[39:0] <= {game_table[29:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd4:
  					begin
  						if(game_table[49:40] == 10'b1111_1111_11)
- 						game_table[49:0] <= {game_table[39:0],10'd0};
+ 						begin
+ 							game_table[49:0] <= {game_table[39:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd5:
  					begin
  						if(game_table[59:50] == 10'b1111_1111_11)
- 						game_table[59:0] <= {game_table[49:0],10'd0};
+ 						begin
+ 							game_table[59:0] <= {game_table[49:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd6:
  					begin
  						if(game_table[69:60] == 10'b1111_1111_11)
- 						game_table[69:0] <= {game_table[59:0],10'd0};
+ 						begin
+ 							game_table[69:0] <= {game_table[59:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd7:
  					begin
  						if(game_table[79:70] == 10'b1111_1111_11)
- 						game_table[79:0] <= {game_table[69:0],10'd0};
+ 						begin
+ 							game_table[79:0] <= {game_table[69:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd8:
  					begin
  						if(game_table[89:80] == 10'b1111_1111_11)
- 						game_table[89:0] <= {game_table[79:0],10'd0};
+ 						begin
+ 							game_table[89:0] <= {game_table[79:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					4'd9:
  					begin
  						if(game_table[99:90] == 10'b1111_1111_11)
- 						game_table[99:0] <= {game_table[89:0],10'd0};
+ 						begin
+ 							game_table[99:0] <= {game_table[89:0],10'd0};
+ 							score <= score + 1'b1;
+ 						end
  					end
  					
  				endcase
@@ -377,14 +414,7 @@
  		end
  		else if((state[3] == 1'b1 && move_available) || (state == `STAT_CREATE))
  		begin
-			if(state == `STAT_CREATE)
- 			begin
- 				//game_table[block_A] <= 1'b1;
- 				//game_table[block_B] <= 1'b1;
- 				//game_table[block_C] <= 1'b1;
- 				//game_table[block_D] <= 1'b1;
- 			end
- 			else
+			if(state != `STAT_CREATE)
  			begin
  				game_table[block_A] <= 1'b0;
  				game_table[block_B] <= 1'b0;
