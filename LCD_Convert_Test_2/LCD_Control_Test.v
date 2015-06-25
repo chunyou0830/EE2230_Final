@@ -14,10 +14,13 @@ module LCD_Control_Test(
 	LCD_en,
 	col_in,
 	row_scn,
-	state_output 
+	state_output,
+	ftsd_ctl,
+	display
 	//led
 );
-
+   output [3:0]ftsd_ctl;
+	output [14:0]display;
 	output [2:0]state_output;
 	input clk;
 	input pb_in_rst;
@@ -48,9 +51,13 @@ module LCD_Control_Test(
 	wire clk_100;
 	wire clk_6;
 	wire clk_3;
+	wire [7:0]score; 
+	wire [3:0]tens_digit,units_digit;
+	wire [3:0]ftsd;
 	
 	wire [99:0] game_table;
-
+wire [1:0]scan_clk;
+wire buffer,clk_debounce;
   clock_divider #(
     .half_cycle(200),         // half cycle = 200 (divided by 400)
     .counter_width(8)         // counter width = 8 bits
@@ -87,7 +94,7 @@ always @*
 		timer_clk = clk_1;
 assign led = timer_clk;*/
 
-one_pulse(
+one_pulse one_pulse(
 	.clk(clk_100),  // clock input
 	.rst(rst), //active low reset
 	.in_trig(pad_pressed), // input trigger
@@ -104,9 +111,40 @@ GameRAMControll game_ctrl(
 	.game_addLine(1'b0),
 	.game_sendLine(),
 	.game_table_output(game_table),
-	.state_output(state_output)
+	.state_output(state_output),
+	.score(score)
 );
 
+binary_to_BCD BCD_converter(
+	.A(score),
+   .ONES(units_digit),
+	.TENS(tens_digit),
+	.HUNDREDS()
+);
+
+scan_ctl scan_control(
+	.in0(4'd0), // 1st input
+   .in1(4'd0), // 2nd input
+   .in2(tens_digit), // 3rd input
+   .in3(units_digit),  // 4th input
+   .ftsd_ctl_en(scan_clk), // divided clock for scan control
+   .ftsd_ctl(ftsd_ctl), // ftsd display control signal 
+   .ftsd_in(ftsd) // output to ftsd display
+);
+
+ftsd displayer(
+	.in(ftsd),
+	.display(display)
+);
+
+
+freqdiv freqdiv(
+	.clk_40M(clk), // clock from the 40MHz oscillator
+   .rst(rst), // low active reset
+   .clk_1(buffer), // divided clock output
+   .clk_debounce(clk_debounce), // clock control for debounce circuit
+   .clk_ftsd_scan(scan_clk) // 
+);
 RAM_ctrl ram_c (
   .game_table(game_table), // CY_ADD
   .clk(clk_div),
