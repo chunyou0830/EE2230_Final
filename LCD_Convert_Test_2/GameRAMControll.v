@@ -65,7 +65,7 @@
  	reg [3:0] state;
  	reg [3:0] state_next;
 	output [2:0] state_output;
-	assign state_output = clear_counter;
+	assign state_output = {clear_counter[2:0], a};
  	// Block Controll
  	reg move_available;
  	wire move_basic_check;
@@ -73,6 +73,7 @@
  	reg [1:0] block_rotate,block_rotate_next;
  	reg [6:0] block_A, block_B, block_C, block_D, block_next_A, block_next_B, block_next_C, block_next_D;
  	reg [99:0] game_table;
+ 	reg a;
  
  	// RAM Controll
  	output [99:0] game_table_output;
@@ -104,6 +105,7 @@
  				begin
  					state_next = `STAT_CREATE;
  				end
+ 				a = 0;
  			end
  			`STAT_CREATE:
  			begin
@@ -123,10 +125,12 @@
  				move_available = 1'b0;
  				/* State Change */
  				state_next = `STAT_MOVE_WAIT;
+ 				
  			end
  			`STAT_MOVE_WAIT:
  			begin
  				/* Initiallize */
+ 				a = 0;
  				move_available = 1'b0;
  				block_rotate_next = block_rotate;
  				/* State Change */
@@ -157,6 +161,7 @@
  			end
  			`STAT_MOVE_DOWN:
  			begin
+ 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A + 7'd10;
  				block_next_B = block_B + 7'd10;
@@ -168,7 +173,6 @@
 				/* State Change */
 				if(move_available)
  				begin
-
 					state_next = `STAT_PAUSE;
  				end
  				else if(1'b0/*~move_available && game_table[9:0]!=10'b0000_0000_00*/)
@@ -182,6 +186,7 @@
  			end
  			`STAT_MOVE_LEFT:
  			begin
+ 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A - 7'd1;
  				block_next_B = block_B - 7'd1;
@@ -195,6 +200,7 @@
  			end
  			`STAT_MOVE_RIGHT:
  			begin
+ 				a = 0;
  				/* Generate next block */
  				block_next_A = block_A + 7'd1;
  				block_next_B = block_B + 7'd1;
@@ -208,6 +214,7 @@
  			end
  			`STAT_MOVE_ROTATE:
  			begin
+ 				a = 0;
  				/* Generate next block */
  				case({block_type,block_rotate})
  					{`BLOCK_J,`ROTATE_0}:{block_next_A,block_next_B,block_next_C,block_next_D} = {block_A-7'd9 ,block_B-7'd20,block_C-7'd11,block_D-7'd2 };
@@ -255,14 +262,16 @@
 			end
 			`STAT_PAUSE:
 			begin
+				 a = 0;
  				state_next = `STAT_MOVE_WAIT;
  				block_rotate_next = block_rotate;
  			end
  			`STAT_CLEAR:
  			begin
- 				if(clear_counter == 4'd0)
+ 				if(clear_counter == 4'd0 && game_table[9:0] != 10'b1111_1111_11&& game_table[19:10] != 10'b1111_1111_11&& game_table[29:20] != 10'b1111_1111_11&& game_table[39:30] != 10'b1111_1111_11&& game_table[49:40] != 10'b1111_1111_11&& game_table[59:50] != 10'b1111_1111_11&& game_table[69:60] != 10'b1111_1111_11&& game_table[79:70] != 10'b1111_1111_11&& game_table[89:80] != 10'b1111_1111_11&& game_table[99:90] != 10'b1111_1111_11)
  				begin
  					state_next = `STAT_CREATE;
+ 					a=1;
  				end
  				else
  				begin
@@ -272,6 +281,7 @@
  			default:
  			begin
  				move_available = 1'b0;
+ 				a = 0;
  				state_next = `STAT_MOVE_WAIT;
  			end
  		endcase
@@ -367,7 +377,13 @@
  		end
  		else if((state[3] == 1'b1 && move_available) || (state == `STAT_CREATE))
  		begin
-
+ 			if(~a)
+ 			begin
+ 				game_table[block_A] <= 1'b0;
+ 				game_table[block_B] <= 1'b0;
+ 				game_table[block_C] <= 1'b0;
+ 				game_table[block_D] <= 1'b0;
+ 			end
 			if(state == `STAT_CREATE)
  			begin
  				game_table[block_A] <= 1'b1;
@@ -380,7 +396,7 @@
  				game_table[block_A] <= 1'b0;
  				game_table[block_B] <= 1'b0;
  				game_table[block_C] <= 1'b0;
- 				game_table[block_D] <= 1'b0;	
+ 				game_table[block_D] <= 1'b0;
  			end
  
  			game_table[block_next_A] <= 1'b1;

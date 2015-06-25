@@ -47,6 +47,7 @@ module LCD_Control_Test(
 	wire clk_1;
 	wire clk_100;
 	wire clk_6;
+	wire clk_3;
 	
 	wire [99:0] game_table;
 
@@ -64,7 +65,8 @@ clock_generator clk_gen(
 	.rst(rst),
 	.clk_1(clk_1),
 	.clk_100(clk_100),
-	.clk_6(clk_6)
+	.clk_6(clk_6),
+	.clk_3(clk_3)
 );
 
 keypad_scan pad_scn(
@@ -95,7 +97,7 @@ one_pulse(
 GameRAMControll game_ctrl(
 	.clk_40M(clk_1),
 	.clk_6(clk_100),
-	.clk_1(clk_1),
+	.clk_1(clk_3),
 	.rst(rst),
 	.pad_key(pad_key),
 	.pad_pressed(ctrl_pressed),

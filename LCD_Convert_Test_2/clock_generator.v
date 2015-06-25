@@ -12,7 +12,8 @@ module clock_generator(
 	rst,
 	clk_1,
 	clk_100,
-	clk_6
+	clk_6,
+	clk_3
 );
 
 // Declare I/Os
@@ -21,14 +22,17 @@ input rst;
 output reg clk_1;
 output reg clk_100;
 output reg clk_6;
+output reg clk_3;
 
 // Declare internal nodes
 reg [`DIV_BY_20M_BIT_WIDTH-1:0] count_20M, count_20M_next;
 reg [`DIV_BY_200K_BIT_WIDTH-1:0] count_200K, count_200K_next;
 reg [21:0] count_3333333,count_3333333_next;
+reg [22:0] count_6666666,count_6666666_next;
 reg clk_1_next;
 reg clk_100_next;
 reg clk_6_next;
+reg clk_3_next;
 
 // *******************
 // Clock divider for 1 Hz
@@ -87,6 +91,34 @@ always @(posedge clk or posedge rst)
 	begin
 		count_3333333 <= count_3333333_next;
 		clk_6 <= clk_6_next;
+	end
+	// *******************
+// Clock divider for 3 Hz
+// *******************
+// Clock Divider: Counter operation
+always @*
+	if (count_6666666 == 6666665)
+	begin
+		count_6666666_next = 23'd0;
+		clk_3_next = ~clk_3;
+	end
+	else
+	begin
+		count_6666666_next = count_6666666 + 1'b1;
+		clk_3_next = clk_3;
+	end
+
+// Counter flip-flops
+always @(posedge clk or posedge rst)
+	if (rst)
+	begin
+		count_6666666 <=23'b0;
+		clk_3 <=1'b0;
+	end
+	else
+	begin
+		count_6666666 <= count_6666666_next;
+		clk_3 <= clk_3_next;
 	end
 
 // *********************
