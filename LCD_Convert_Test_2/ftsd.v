@@ -15,32 +15,52 @@ module ftsd(
 );
 
 // Declare I/Os
-input [`BCD_BIT_WIDTH-1:0] in; // binary input
-output [`FTSD_BIT_WIDTH-1:0] display; // 14-segment display out
+input [5:0] in; // binary input
+output [14:0] display; // 14-segment display out
 
 // Declare internal nodes
-reg [`FTSD_BIT_WIDTH-1:0] display; 
+reg [14:0] display; 
 
 // Combinatioanl Logic
 always @(in)
   case (in)
-    `BCD_BIT_WIDTH'd0: display = `FTSD_ZERO;
-    `BCD_BIT_WIDTH'd1: display = `FTSD_ONE;
-    `BCD_BIT_WIDTH'd2: display = `FTSD_TWO;
-    `BCD_BIT_WIDTH'd3: display = `FTSD_THREE;
-    `BCD_BIT_WIDTH'd4: display = `FTSD_FOUR;
-    `BCD_BIT_WIDTH'd5: display = `FTSD_FIVE;
-    `BCD_BIT_WIDTH'd6: display = `FTSD_SIX;
-    `BCD_BIT_WIDTH'd7: display = `FTSD_SEVEN;
-    `BCD_BIT_WIDTH'd8: display = `FTSD_EIGHT;
-    `BCD_BIT_WIDTH'd9: display = `FTSD_NINE;
-    `BCD_BIT_WIDTH'd10: display = `FTSD_A;
-    `BCD_BIT_WIDTH'd11: display = `FTSD_B;
-    `BCD_BIT_WIDTH'd12: display = `FTSD_C;
-    `BCD_BIT_WIDTH'd13: display = `FTSD_D;
-    `BCD_BIT_WIDTH'd14: display = `FTSD_E;
-    `BCD_BIT_WIDTH'd15: display = `FTSD_F;
-    default: display = 15'd0;
+            `FONT_ZERO: display=`FTSD_ZERO;
+            `FONT_ONE: display=`FTSD_ONE;
+            `FONT_TWO: display=`FTSD_TWO;
+            `FONT_THREE: display=`FTSD_THREE;
+            `FONT_FOUR: display=`FTSD_FOUR;
+            `FONT_FIVE: display=`FTSD_FIVE;
+            `FONT_SIX: display=`FTSD_SIX;
+            `FONT_SEVEN: display=`FTSD_SEVEN;
+            `FONT_EIGHT: display=`FTSD_EIGHT;
+            `FONT_NINE: display= `FTSD_NINE;
+            `FONT_A: display=`FTSD_A;
+            `FONT_B: display=`FTSD_B;
+            `FONT_C: display=`FTSD_C;
+            `FONT_D: display=`FTSD_D;
+            `FONT_E: display=`FTSD_E;
+            `FONT_F: display=`FTSD_F;
+            `FONT_G: display=`FTSD_G;
+            `FONT_H: display=`FTSD_H;
+            `FONT_I: display=`FTSD_I;
+            `FONT_J: display=`FTSD_J;
+            `FONT_K: display=`FTSD_K;
+            `FONT_L: display=`FTSD_L;
+            `FONT_M: display=`FTSD_M;
+            `FONT_N: display=`FTSD_N;
+            `FONT_O: display=`FTSD_O;
+            `FONT_P: display=`FTSD_P;
+            `FONT_Q: display=`FTSD_Q;
+            `FONT_R: display=`FTSD_R;
+            `FONT_S: display=`FTSD_S;
+            `FONT_T: display=`FTSD_T;
+            `FONT_U: display=`FTSD_U;
+            `FONT_V: display=`FTSD_V;
+            `FONT_W: display=`FTSD_W;
+            `FONT_X: display=`FTSD_X;
+            `FONT_Y: display=`FTSD_Y;
+            `FONT_Z: display=`FTSD_Z;
+            default: display=`FTSD_DEFAULT;
   endcase
   
 endmodule

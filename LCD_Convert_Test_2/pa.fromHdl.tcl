@@ -9,7 +9,13 @@ add_files [list {ipcore_dir/RAM.ngc}]
 set hdlfile [add_files [list {ipcore_dir/RAM.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
+set hdlfile [add_files [list {add3.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
 set hdlfile [add_files [list {System_State_Controll.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {scan_ctl.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
 set hdlfile [add_files [list {RAM_ctrl.v}]]
@@ -27,10 +33,22 @@ set_property library work $hdlfile
 set hdlfile [add_files [list {GameRAMControll.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
+set hdlfile [add_files [list {ftsdDisplayChoose.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {ftsd.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {freqdiv.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
 set hdlfile [add_files [list {ct_clkdivider.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
 set hdlfile [add_files [list {clock_generator.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {bcd_converter.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
 set hdlfile [add_files [list {LCD_Control_Test.v}]]

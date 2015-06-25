@@ -285,6 +285,7 @@
  				else
  				begin
  					state_next = `STAT_CLEAR;
+ 					//score_next = score + 1'b1;
  				end
  			end
  			default:
@@ -314,12 +315,34 @@
 
  	assign game_table_output = game_table;
 
+ 	always @(posedge clk_6 or posedge rst) begin
+ 		if (rst)
+ 		begin
+ 			score <= 8'd0;
+ 		end
+ 		else if (state == `STAT_CLEAR)
+ 		begin
+ 			case(clear_counter)
+ 				4'd0:if(game_table[9:0] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd1:if(game_table[19:10] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd2:if(game_table[29:20] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd3:if(game_table[39:30] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd4:if(game_table[49:40] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd5:if(game_table[59:50] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd6:if(game_table[69:60] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd7:if(game_table[79:70] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd8:if(game_table[89:80] == 10'b1111_1111_11) score <= score+1'b1;
+ 				4'd9:if(game_table[99:90] == 10'b1111_1111_11) score <= score+1'b1;
+ 			endcase
+ 		end
+ 	end
+
 	always @(posedge clk_6 or posedge rst)
  	begin
  		if(rst)
  		begin
  			game_table <= 100'd0;
- 			score <= 8'd0;
+ 			//score <= 8'd0;
  		end
  		else if(state == `STAT_STOP)
  		begin
@@ -333,7 +356,7 @@
  						if(game_table[9:0] == 10'b1111_1111_11)
  						begin
  							game_table[9:0]  <= {10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd1:
@@ -341,7 +364,7 @@
  						if(game_table[19:10] == 10'b1111_1111_11)
  						begin
  							game_table[19:0] <= {game_table[9:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd2:
@@ -349,7 +372,7 @@
  						if(game_table[29:20] == 10'b1111_1111_11)
  						begin
  							game_table[29:0] <= {game_table[19:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd3:
@@ -357,7 +380,7 @@
  						if(game_table[39:30] == 10'b1111_1111_11)
  						begin
  							game_table[39:0] <= {game_table[29:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd4:
@@ -365,7 +388,7 @@
  						if(game_table[49:40] == 10'b1111_1111_11)
  						begin
  							game_table[49:0] <= {game_table[39:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd5:
@@ -373,7 +396,7 @@
  						if(game_table[59:50] == 10'b1111_1111_11)
  						begin
  							game_table[59:0] <= {game_table[49:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd6:
@@ -381,7 +404,7 @@
  						if(game_table[69:60] == 10'b1111_1111_11)
  						begin
  							game_table[69:0] <= {game_table[59:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd7:
@@ -389,7 +412,7 @@
  						if(game_table[79:70] == 10'b1111_1111_11)
  						begin
  							game_table[79:0] <= {game_table[69:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd8:
@@ -397,7 +420,7 @@
  						if(game_table[89:80] == 10'b1111_1111_11)
  						begin
  							game_table[89:0] <= {game_table[79:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					4'd9:
@@ -405,7 +428,7 @@
  						if(game_table[99:90] == 10'b1111_1111_11)
  						begin
  							game_table[99:0] <= {game_table[89:0],10'd0};
- 							score <= score + 1'b1;
+ 							//score <= score_next;//score_next = score + 1'b1;
  						end
  					end
  					

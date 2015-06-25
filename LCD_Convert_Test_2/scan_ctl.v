@@ -20,14 +20,14 @@ module scan_ctl(
 );
 
 // Declare I/Os
-input [`BCD_BIT_WIDTH-1:0] in0,in1,in2,in3; // binary input control for the four digits 
+input [5:0] in0,in1,in2,in3; // binary input control for the four digits 
 input [1:0] ftsd_ctl_en; // divided clock for scan control
-output [`BCD_BIT_WIDTH-1:0] ftsd_in; // Binary data 
+output [5:0] ftsd_in; // Binary data 
 output [`FTSD_NUM-1:0] ftsd_ctl; // scan control for 14-segment display
 
 // Declare internal nodes
 reg [`FTSD_NUM-1:0] ftsd_ctl; // scan control for 14-segment display (in the always block)
-reg [`BCD_BIT_WIDTH-1:0] ftsd_in; // 14 segment display control (in the always block)
+reg [5:0] ftsd_in; // 14 segment display control (in the always block)
 
 // 14-segment display scan control
 always @*

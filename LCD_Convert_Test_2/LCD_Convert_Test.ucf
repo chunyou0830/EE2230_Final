@@ -37,12 +37,12 @@ NET "score_in[2]"	LOC = K18;
 NET "score_in[3]"	LOC = M16;
 NET "score_in[4]"	LOC = N18;
 NET "score_in[5]"	LOC = N15;
-#NET "score_out[0]"	LOC = L13;
-#NET "score_out[1]"	LOC = K17;
-#NET "score_out[2]"	LOC = L18;
-#NET "score_out[3]"	LOC = N17;
-#NET "score_out[4]"	LOC = P18;
-#NET "score_out[5]"	LOC = T17;
+NET "score_out[0]"	LOC = L13;
+NET "score_out[1]"	LOC = K17;
+NET "score_out[2]"	LOC = L18;
+NET "score_out[3]"	LOC = N17;
+NET "score_out[4]"	LOC = P18;
+NET "score_out[5]"	LOC = T17;
 
 
 NET "state_in[0]"	LOC = E18;
