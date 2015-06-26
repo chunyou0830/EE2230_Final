@@ -27,13 +27,15 @@ module LCD_Control_Test(
 	audio_sysclk,
 	audio_bck,
 	audio_ws,
-	audio_data
+	audio_data,
+	led
 );
 	input [5:0] score_in;
 	input [2:0] state_in;
 	output [5:0] score_out;
 	output [2:0] state_out;
 	wire [3:0] game_state;
+	output [15:0] led;
 
 	input clk;
 	input pb_in_rst;
@@ -48,7 +50,6 @@ module LCD_Control_Test(
 	output LCD_di;
 	output [7:0] LCD_data;
 	output LCD_en;
-	//output led;
 	output [3:0] ftsd_ctl;
 	output [14:0] display;
 	wire [7:0] score;
@@ -100,7 +101,8 @@ SystemState sysStat(
 	.stat_out(state_out),
 	.rst(rst),
 	.clk_1(clk_1),
-	.clk_100(clk_100)
+	.clk_100(clk_100),
+	.led(led)
 );
 
 keypad_scan pad_scn(

@@ -1,0 +1,37 @@
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 
+xst -intstyle ise -ifn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.xst" -ofn "D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc LCD_Convert_Test.ucf -p xc6slx16-csg324-3 LCD_Control_Test.ngc LCD_Control_Test.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o LCD_Control_Test_map.ncd LCD_Control_Test.ngd LCD_Control_Test.pcf 
+par -w -intstyle ise -ol high -mt off LCD_Control_Test_map.ncd LCD_Control_Test.ncd LCD_Control_Test.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf 
+bitgen -intstyle ise -f LCD_Control_Test.ut LCD_Control_Test.ncd 

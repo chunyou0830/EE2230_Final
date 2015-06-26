@@ -1,0 +1,181 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\XilinxISE\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s
+3 -n 3 -fastpaths -xml LCD_Control_Test.twx LCD_Control_Test.ncd -o
+LCD_Control_Test.twr LCD_Control_Test.pcf -ucf LCD_Convert_Test.ucf
+
+Design file:              LCD_Control_Test.ncd
+Physical constraint file: LCD_Control_Test.pcf
+Device,package,speed:     xc6slx16,csg324,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+pb_in_rst   |    6.114(R)|      SLOW  |   -1.830(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+audio_bck   |         8.302(R)|      SLOW  |         4.424(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+audio_ws    |         8.801(R)|      SLOW  |         4.764(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<1>  |        13.061(R)|      SLOW  |         5.538(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<2>  |        12.533(R)|      SLOW  |         5.300(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<3>  |        12.347(R)|      SLOW  |         4.926(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<4>  |        12.923(R)|      SLOW  |         5.363(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<5>  |        12.464(R)|      SLOW  |         5.357(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<6>  |        12.868(R)|      SLOW  |         5.134(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<7>  |        12.572(R)|      SLOW  |         5.295(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<8>  |        13.199(R)|      SLOW  |         5.432(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<9>  |        12.891(R)|      SLOW  |         5.494(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<10> |        12.822(R)|      SLOW  |         5.148(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<11> |        12.805(R)|      SLOW  |         5.294(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<12> |        12.986(R)|      SLOW  |         5.202(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<13> |        12.628(R)|      SLOW  |         4.985(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+display<14> |        12.751(R)|      SLOW  |         5.394(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+ftsd_ctl<0> |         8.521(R)|      SLOW  |         4.529(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+ftsd_ctl<1> |         8.608(R)|      SLOW  |         4.575(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+ftsd_ctl<2> |         8.529(R)|      SLOW  |         4.529(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+ftsd_ctl<3> |         8.731(R)|      SLOW  |         4.659(R)|      FAST  |clk_IBUF_BUFG     |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.844|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+clk            |audio_sysclk   |    7.915|
+pb_in_rst      |LCD_rst        |    8.891|
+score_in<0>    |display<1>     |   13.713|
+score_in<0>    |display<2>     |   13.304|
+score_in<0>    |display<3>     |   13.148|
+score_in<0>    |display<4>     |   13.753|
+score_in<0>    |display<5>     |   13.590|
+score_in<0>    |display<6>     |   13.669|
+score_in<0>    |display<7>     |   13.282|
+score_in<0>    |display<8>     |   14.108|
+score_in<0>    |display<9>     |   13.692|
+score_in<0>    |display<10>    |   13.623|
+score_in<0>    |display<11>    |   13.714|
+score_in<0>    |display<12>    |   13.787|
+score_in<0>    |display<13>    |   13.429|
+score_in<0>    |display<14>    |   13.552|
+score_in<1>    |display<1>     |   13.416|
+score_in<1>    |display<2>     |   13.007|
+score_in<1>    |display<3>     |   12.851|
+score_in<1>    |display<4>     |   13.456|
+score_in<1>    |display<5>     |   13.293|
+score_in<1>    |display<6>     |   13.372|
+score_in<1>    |display<7>     |   12.985|
+score_in<1>    |display<8>     |   13.811|
+score_in<1>    |display<9>     |   13.395|
+score_in<1>    |display<10>    |   13.326|
+score_in<1>    |display<11>    |   13.417|
+score_in<1>    |display<12>    |   13.490|
+score_in<1>    |display<13>    |   13.132|
+score_in<1>    |display<14>    |   13.255|
+score_in<2>    |display<1>     |   13.002|
+score_in<2>    |display<2>     |   12.593|
+score_in<2>    |display<3>     |   12.437|
+score_in<2>    |display<4>     |   13.042|
+score_in<2>    |display<5>     |   12.879|
+score_in<2>    |display<6>     |   12.958|
+score_in<2>    |display<7>     |   12.571|
+score_in<2>    |display<8>     |   13.397|
+score_in<2>    |display<9>     |   12.981|
+score_in<2>    |display<10>    |   12.912|
+score_in<2>    |display<11>    |   13.003|
+score_in<2>    |display<12>    |   13.076|
+score_in<2>    |display<13>    |   12.718|
+score_in<2>    |display<14>    |   12.841|
+score_in<3>    |display<1>     |   12.754|
+score_in<3>    |display<2>     |   12.345|
+score_in<3>    |display<3>     |   12.189|
+score_in<3>    |display<4>     |   12.794|
+score_in<3>    |display<5>     |   12.631|
+score_in<3>    |display<6>     |   12.710|
+score_in<3>    |display<7>     |   12.323|
+score_in<3>    |display<8>     |   13.149|
+score_in<3>    |display<9>     |   12.733|
+score_in<3>    |display<10>    |   12.664|
+score_in<3>    |display<11>    |   12.755|
+score_in<3>    |display<12>    |   12.828|
+score_in<3>    |display<13>    |   12.470|
+score_in<3>    |display<14>    |   12.593|
+score_in<4>    |display<1>     |   12.284|
+score_in<4>    |display<2>     |   11.693|
+score_in<4>    |display<3>     |   11.438|
+score_in<4>    |display<4>     |   12.324|
+score_in<4>    |display<5>     |   11.944|
+score_in<4>    |display<6>     |   11.815|
+score_in<4>    |display<7>     |   11.853|
+score_in<4>    |display<8>     |   12.679|
+score_in<4>    |display<9>     |   11.970|
+score_in<4>    |display<10>    |   11.570|
+score_in<4>    |display<11>    |   12.285|
+score_in<4>    |display<12>    |   11.924|
+score_in<4>    |display<13>    |   11.589|
+score_in<4>    |display<14>    |   11.777|
+score_in<5>    |display<1>     |   12.964|
+score_in<5>    |display<2>     |   12.436|
+score_in<5>    |display<3>     |   11.684|
+score_in<5>    |display<4>     |   12.780|
+score_in<5>    |display<5>     |   12.311|
+score_in<5>    |display<6>     |   12.044|
+score_in<5>    |display<7>     |   12.475|
+score_in<5>    |display<8>     |   13.000|
+score_in<5>    |display<9>     |   12.740|
+score_in<5>    |display<10>    |   12.105|
+score_in<5>    |display<11>    |   12.426|
+score_in<5>    |display<12>    |   12.596|
+score_in<5>    |display<13>    |   12.152|
+score_in<5>    |display<14>    |   12.366|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Jun 26 08:39:11 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 291 MB
+
+
+

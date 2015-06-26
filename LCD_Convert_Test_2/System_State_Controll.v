@@ -27,7 +27,8 @@ module SystemState(
 	stat_out,
 	rst,
 	clk_1,
-	clk_100
+	clk_100,
+	led
 );
 
 	// I/O PORTS DECLARATION ----------
@@ -42,6 +43,7 @@ module SystemState(
 
 	// Output Ports
 	output reg [2:0] stat_out;
+	output reg [15:0] led;
 
 	// Reg Ports
 	reg [2:0] stat_out_next;
@@ -131,6 +133,37 @@ module SystemState(
     	else
     	begin
     		game_time <= 7'd80;	
+    	end
+    end
+    reg [15:0] led_rand;
+    always @(posedge clk_100 or posedge rst)
+ 	begin
+ 		if(rst)
+ 		begin
+ 			led_rand<=16'b0111_0101_0101_1010;
+ 		end
+ 		else
+ 		begin
+ 			led_rand<={led_rand[15:0],led_rand[2]^led_rand[0]};
+ 		end
+ 	end
+
+    always @(posedge clk_1 or posedge rst) begin
+    	if (rst)
+    	begin
+    		led <= 16'b1111_1111_1111_1111;
+    	end
+    	else if(stat_out == `STAT_MATCH_ING)
+    	begin
+    		led <= 16'b1111_1111_1111_1111;
+    	end
+    	/*else if(stat_out == `STAT_NORMAL)
+    	begin
+    		led <= led_rand;
+    	end*/
+    	else if (stat_out == `STAT_GAME_ING && (game_time%5) == 1'b0)
+    	begin
+    		led <= {led[14:0],1'b0};
     	end
     end
 
