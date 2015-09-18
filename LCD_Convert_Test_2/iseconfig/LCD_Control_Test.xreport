@@ -3,7 +3,11 @@
  <header>
   <ImplementationReportsDirectory>D:/Programming/EE2230_Final/LCD_Convert_Test_2\</ImplementationReportsDirectory>
   <ModuleName>LCD_Control_Test</ModuleName>
+<<<<<<< HEAD
   <DateModified>2015-06-26T11:57:35</DateModified>
+=======
+  <DateModified>2015-07-08T00:00:53</DateModified>
+>>>>>>> origin/master
   <SavedFilePath>D:/Programming/EE2230_Final/LCD_Convert_Test_2/iseconfig/LCD_Control_Test.xreport</SavedFilePath>
   <DateInitialized>2015-06-20T11:11:23</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>

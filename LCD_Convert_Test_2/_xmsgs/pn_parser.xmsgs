@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/GameRAMControll.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/GameRAMControll.v</arg>&quot; Line <arg fmt="%d" index="2">14</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/GameRAMControll.v&quot; line 14
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_control.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_left_control.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/RAM_ctrl.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/System_State_Controll.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/add3.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/bcd_converter.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/buzzer_control.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/clk_generator.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/clk_generator.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/clk_generator.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/clock_generator.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/clock_generator.v</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/clock_generator.v&quot; line 9
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/ct_clkdivider.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/debounce.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/debounce_circuit.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/debounce_circuit.v</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/debounce_circuit.v&quot; line 9
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/freqdiv.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/freqdiv.v</arg>&quot; Line <arg fmt="%d" index="2">11</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/freqdiv.v&quot; line 11
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsd.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsd.v</arg>&quot; Line <arg fmt="%d" index="2">11</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsd.v&quot; line 11
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsdDisplayChoose.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsdDisplayChoose.v</arg>&quot; Line <arg fmt="%d" index="2">14</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/ftsdDisplayChoose.v&quot; line 14
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/keypad_scan.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/keypad_scan.v</arg>&quot; Line <arg fmt="%d" index="2">7</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/keypad_scan.v&quot; line 7
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/one_pulse.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/one_pulse.v</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/one_pulse.v&quot; line 9
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/push_button.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/scan_ctl.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">D:/Programming/EE2230_Final/LCD_Convert_Test_2/scan_ctl.v</arg>&quot; Line <arg fmt="%d" index="2">11</arg>. <arg fmt="%s" index="3">Include file found: &apos;D:/Programming/EE2230_Final/LCD_Convert_Test_2/global.v&apos; in file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/scan_ctl.v&quot; line 11
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/sound_counter.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/speaker_control.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;D:/Programming/EE2230_Final/LCD_Convert_Test_2/volumn_counter.v&quot; into library work</arg>
+</msg>
+
+</messages>
+

@@ -30,6 +30,104 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
+<<<<<<< HEAD
+=======
+    <transform xil_pn:end_ts="1435276503" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="1921419647514379497" xil_pn:start_ts="1435276503">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1435276503" xil_pn:in_ck="2640051823165038294" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="1106364426758808884" xil_pn:start_ts="1435276503">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1435276503" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="3064123509710795392" xil_pn:start_ts="1435276503">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279088" xil_pn:in_ck="-7630980637709086748" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="6761877084272634757" xil_pn:start_ts="1435279040">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="LCD_Control_Test.lso"/>
+      <outfile xil_pn:name="LCD_Control_Test.ngc"/>
+      <outfile xil_pn:name="LCD_Control_Test.ngr"/>
+      <outfile xil_pn:name="LCD_Control_Test.prj"/>
+      <outfile xil_pn:name="LCD_Control_Test.stx"/>
+      <outfile xil_pn:name="LCD_Control_Test.syr"/>
+      <outfile xil_pn:name="LCD_Control_Test.xst"/>
+      <outfile xil_pn:name="LCD_Control_Test_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1435277504" xil_pn:in_ck="8632455628934529470" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7840016144236098028" xil_pn:start_ts="1435277504">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279093" xil_pn:in_ck="692847169139943243" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8922183061898191767" xil_pn:start_ts="1435279088">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="LCD_Control_Test.bld"/>
+      <outfile xil_pn:name="LCD_Control_Test.ngd"/>
+      <outfile xil_pn:name="LCD_Control_Test_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279129" xil_pn:in_ck="-6424848456697700649" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1463976855095865663" xil_pn:start_ts="1435279093">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="LCD_Control_Test.pcf"/>
+      <outfile xil_pn:name="LCD_Control_Test_map.map"/>
+      <outfile xil_pn:name="LCD_Control_Test_map.mrp"/>
+      <outfile xil_pn:name="LCD_Control_Test_map.ncd"/>
+      <outfile xil_pn:name="LCD_Control_Test_map.ngm"/>
+      <outfile xil_pn:name="LCD_Control_Test_map.xrpt"/>
+      <outfile xil_pn:name="LCD_Control_Test_summary.xml"/>
+      <outfile xil_pn:name="LCD_Control_Test_usage.xml"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279152" xil_pn:in_ck="5268263076295264496" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1435279129">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="LCD_Control_Test.ncd"/>
+      <outfile xil_pn:name="LCD_Control_Test.pad"/>
+      <outfile xil_pn:name="LCD_Control_Test.par"/>
+      <outfile xil_pn:name="LCD_Control_Test.ptwx"/>
+      <outfile xil_pn:name="LCD_Control_Test.unroutes"/>
+      <outfile xil_pn:name="LCD_Control_Test.xpi"/>
+      <outfile xil_pn:name="LCD_Control_Test_pad.csv"/>
+      <outfile xil_pn:name="LCD_Control_Test_pad.txt"/>
+      <outfile xil_pn:name="LCD_Control_Test_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279174" xil_pn:in_ck="5948757954875991573" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1435279152">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="LCD_Control_Test.ut"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="lcd_control_test.bgn"/>
+      <outfile xil_pn:name="lcd_control_test.bit"/>
+      <outfile xil_pn:name="lcd_control_test.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1436284878" xil_pn:in_ck="8081969308202148991" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="2682241697568822907" xil_pn:start_ts="1436284877">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1435279152" xil_pn:in_ck="2836200022014424147" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1435279147">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="LCD_Control_Test.twr"/>
+      <outfile xil_pn:name="LCD_Control_Test.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+    </transform>
+>>>>>>> origin/master
   </transforms>
 
 </generated_project>
