@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/LCD_Control_Test D:|Programming|EE2230_Final|LCD_Convert_Test_2|LCD_Control_Test.v</ClosedNode>
          <ClosedNode>/LCD_Control_Test D:|Programming|EE2230_Final|LCD_Convert_Test_2|LCD_Control_Test.v/BCD_converter - binary_to_BCD</ClosedNode>
          <ClosedNode>/LCD_Control_Test D:|Programming|EE2230_Final|LCD_Convert_Test_2|LCD_Control_Test.v/BCD_converter_send - binary_to_BCD</ClosedNode>
          <ClosedNode>/LCD_Control_Test D:|Programming|EE2230_Final|LCD_Convert_Test_2|LCD_Control_Test.v/ram_c - RAM_ctrl</ClosedNode>
@@ -14,13 +15,13 @@
          <ClosedNode>/push_button D:|Programming|EE2230_Final|LCD_Convert_Test_2|push_button.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>LCD_Control_Test (D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.v)</SelectedItem>
+         <SelectedItem>clk_gener - clk_generator (D:/Programming/EE2230_Final/LCD_Convert_Test_2/clk_generator.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000018a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000018a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000126000000020000000000000000000000000200000064ffffffff000000810000000300000002000001260000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>LCD_Control_Test (D:/Programming/EE2230_Final/LCD_Convert_Test_2/LCD_Control_Test.v)</CurrentItem>
+      <CurrentItem>clk_gener - clk_generator (D:/Programming/EE2230_Final/LCD_Convert_Test_2/clk_generator.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -55,7 +56,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000064000000010001000100000000000000000000000064ffffffff000000810000000000000001000000640000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000009a000000010001000100000000000000000000000064ffffffff0000008100000000000000010000009a0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -69,34 +70,21 @@
          <ClosedNode>Synthesize - XST</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Manage Configuration Project (iMPACT)</SelectedItem>
-      </SelectedItems>
-<<<<<<< HEAD
-      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000019d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000019d0000000100000000</ViewHeaderState>
-=======
-      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000134000000010000000100000000000000000000000064ffffffff000000810000000000000001000001340000000100000000</ViewHeaderState>
->>>>>>> origin/master
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Manage Configuration Project (iMPACT)</CurrentItem>
-   </ItemView>
-   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
-   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>User Constraints</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001ae000000010000000100000000000000000000000064ffffffff000000810000000000000001000001ae0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>
+<?xml version="1.0" encoding="utf-8"?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="LCD_Convert_Test" >
+   <!--This is an ISE project configuration file.-->
 </Project>
